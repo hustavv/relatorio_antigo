@@ -1,0 +1,62 @@
+username,email,FIRSTNAME,LASTNAME,password,CITY,COUNTRY,lang,course1,type1
+51574284568,adeiltonthoy@academico.ufs.br,ADEILTON,SANTANA NOGUEIRA,csd5157,,BR,pt_br,PPF-2021.1,1
+71032002204,gizelle.morais@academico.ufs.br,ADREA,GIZELLE MORAIS COSTA BESEN,csd7103,,BR,pt_br,PPF-2021.1,1
+04432881518,aline.barretoh@academico.ufs.br,ALINE,BARRETO HORA,csd0443,,BR,pt_br,PPF-2021.1,1
+04374334556,amandaneuman@academico.ufs.br,AMANDA,NEUMAN MONTE ROCHA NASCIMENTO,csd0437,,BR,pt_br,PPF-2021.1,1
+79559697587,carolwestrup@academico.ufs.br,ANA,CAROLINA WESTRUP,csd7955,,BR,pt_br,PPF-2021.1,1
+85790029582,caiogr@academico.ufs.br,CAIO,GRACO QUEIROZ MAIA,csd8579,,BR,pt_br,PPF-2021.1,1
+71840133015,carla.reiher@academico.ufs.br,CARLA,BETANIA REIHER,csd7184,,BR,pt_br,PPF-2021.1,1
+42194156020,carlappgfil@academico.ufs.br,CARLA,JEANE HELFEMSTELLER COELHO,csd4219,,BR,pt_br,PPF-2021.1,1
+97321761568,vieirinha@academico.ufs.br,CARLOS,VIEIRA SANTOS,csd9732,,BR,pt_br,PPF-2021.1,1
+78945321500,carmem.e@academico.ufs.br,CARMEM,EMANUELA SANTOS SILVA,csd7894,,BR,pt_br,PPF-2021.1,1
+03131911581,lenodeandrade@academico.ufs.br,CHARLISSON,SILVA DE ANDRADE,csd0313,,BR,pt_br,PPF-2021.1,1
+04894666561,cindyrosa@academico.ufs.br,CINDY,ROSA MELO,csd0489,,BR,pt_br,PPF-2021.1,1
+01326861557,cinthiafilosofia@academico.ufs.br,CINTHIA,ALMEIDA LIMA,csd0132,,BR,pt_br,PPF-2021.1,1
+88703258572,claudia.lima@academico.ufs.br,CLAUDIA,DE MEDEIROS LIMA,csd8870,,BR,pt_br,PPF-2021.1,1
+08067480443,cleibsonamerico21@academico.ufs.br,CLEIBSON,AMERICO DA SILVA,csd0806,,BR,pt_br,PPF-2021.1,1
+85336408549,daleteohana@academico.ufs.br,DALETE,OHANA DOS SANTOS SANTANA,csd8533,,BR,pt_br,PPF-2021.1,1
+76976211349,dejainadias@academico.ufs.br,DEJAINA,DIAS DE SOUZA,csd7697,,BR,pt_br,PPF-2021.1,1
+88855724568,deniserosa@academico.ufs.br,DENISE,CRISTINA SILVA ROSA,csd8885,,BR,pt_br,PPF-2021.1,1
+05488194592,edcley@academico.ufs.br,EDCLEY,VASCONCELOS LEITE SERRA,csd0548,,BR,pt_br,PPF-2021.1,1
+04258128716,edilsonponciano@academico.ufs.br,EDILSON,PONCIANO DE LIMA,csd0425,,BR,pt_br,PPF-2021.1,1
+01645298531,alvesneto.eduardo@academico.ufs.br,EDUARDO,ALVES NETO,csd0164,,BR,pt_br,PPF-2021.1,1
+96233915520,ejasantos@academico.ufs.br,ELBER,JOSE ALMEIDA SANTOS,csd9623,,BR,pt_br,PPF-2021.1,1
+04693429511,elenilton2010@academico.ufs.br,ELENILTON,CORREIA DE SOUZA,csd0469,,BR,pt_br,PPF-2021.1,1
+00931832594,biana@academico.ufs.br,FABIANA,ALVES DO NASCIMENTO,csd0093,,BR,pt_br,PPF-2021.1,1
+01420576577,fagnerbomfim@academico.ufs.br,FAGNER,DOS SANTOS BOMFIM,csd0142,,BR,pt_br,PPF-2021.1,1
+05223846508,fernandojornal@academico.ufs.br,FERNANDO,MOREIRA DE SOUZA,csd0522,,BR,pt_br,PPF-2021.1,1
+42560756587,florival@academico.ufs.br,FLORIVAL,JOSE DE SOUZA FILHO,csd4256,,BR,pt_br,PPF-2021.1,1
+04146997500,franciscoemanuel@academico.ufs.br,FRANCISCO,EMANUEL SILVA MENESES ALVES,csd0414,,BR,pt_br,PPF-2021.1,1
+01696706513,gdorialima@academico.ufs.br,GUSTAVO,DORIA LIMA,csd0169,,BR,pt_br,PPF-2021.1,1
+03966560569,helenoalmeida@academico.ufs.br,HELENO,ALMEIDA JUNIOR,csd0396,,BR,pt_br,PPF-2021.1,1
+64350150587,hernanydonato@academico.ufs.br,HERNANY,DONATO DE MOURA,csd6435,,BR,pt_br,PPF-2021.1,1
+07106873543,oliveiraingride@academico.ufs.br,INGRIDE,RAMOS DE CARVALHO OLIVEIRA,csd0710,,BR,pt_br,PPF-2021.1,1
+26139088828,ingritpaiva@academico.ufs.br,INGRIT,MACHADO JAMPIETRI DE PAIVA,csd2613,,BR,pt_br,PPF-2021.1,1
+01629246581,ivaldoliveira@academico.ufs.br,IVALDO,OLIVEIRA SANTOS,csd0162,,BR,pt_br,PPF-2021.1,1
+62620010500,clio73@academico.ufs.br,IVAN,PAULO SILVEIRA SANTOS,csd6262,,BR,pt_br,PPF-2021.1,1
+06008816528,riaj@academico.ufs.br,JAIR,DOS SANTOS XAVIER,csd0600,,BR,pt_br,PPF-2021.1,1
+06339731570,carlinhosjr7@academico.ufs.br,JOSE,CARLOS ARAGAO SANTOS,csd0633,,BR,pt_br,PPF-2021.1,1
+66163170563,jwjesus@academico.ufs.br,JOSE,WELINGTON DE JESUS,csd6616,,BR,pt_br,PPF-2021.1,1
+04362335501,bugaluuu@academico.ufs.br,JULIANA,VILA NOVA DE OLIVEIRA,csd0436,,BR,pt_br,PPF-2021.1,1
+04196705561,laiskalena@academico.ufs.br,LAIS,KALENA SALLES ARAGAO,csd0419,,BR,pt_br,PPF-2021.1,1
+01574110527,lauuuraaa@academico.ufs.br,LAURA,DANIELLE LIMA SANTOS,csd0157,,BR,pt_br,PPF-2021.1,1
+05997403530,lauromorais@academico.ufs.br,LAURO,IANE DE MORAIS,csd0599,,BR,pt_br,PPF-2021.1,1
+77753364553,leonardo.almeida@academico.ufs.br,LEONARDO,SOUZA SANTANA ALMEIDA,csd7775,,BR,pt_br,PPF-2021.1,1
+07257039542,lucasblack@academico.ufs.br,LUCAS,VIEIRA SANTOS SILVA,csd0725,,BR,pt_br,PPF-2021.1,1
+78275202515,luikovski@academico.ufs.br,LUIGE,COSTA CARVALHO DE OLIVEIRA,csd7827,,BR,pt_br,PPF-2021.1,1
+04200661527,luizbezerra@academico.ufs.br,LUIZ,PAULO SANTOS BEZERRA,csd0420,,BR,pt_br,PPF-2021.1,1
+01981551581,maianebrito@academico.ufs.br,MAIANE,VASCONCELOS DE BRITO,csd0198,,BR,pt_br,PPF-2021.1,1
+58780513549,margaridamargo@academico.ufs.br,MARGARIDA,MARIA ARAUJO BISPO,csd5878,,BR,pt_br,PPF-2021.1,1
+08251003644,teresa.coelho@academico.ufs.br,MARIA,TERESA RUAS COELHO,csd0825,,BR,pt_br,PPF-2021.1,1
+03547234565,nandalima@academico.ufs.br,MARILIA,FERNANDA SANTOS LIMA,csd0354,,BR,pt_br,PPF-2021.1,1
+04878548533,marilia2013@academico.ufs.br,MARILIA,OLIVEIRA DE JESUS,csd0487,,BR,pt_br,PPF-2021.1,1
+16222571549,musamirtes@academico.ufs.br,MIRTES,DE MENEZES ALMEIDA,csd1622,,BR,pt_br,PPF-2021.1,1
+85805145502,grimus@academico.ufs.br,PERCY,DANIEL ARCE SANTOS,csd8580,,BR,pt_br,PPF-2021.1,1
+06288473510,raianedejesus@academico.ufs.br,RAIANE,DE JESUS SANTOS,csd0628,,BR,pt_br,PPF-2021.1,1
+94515360515,rosanatorres@academico.ufs.br,ROSANA,MARIA SANTOS TORRES MARCONDES,csd9451,,BR,pt_br,PPF-2021.1,1
+03367603538,saulo.vinicius@academico.ufs.br,SAULO,VINICIUS SOUZA BARBOSA,csd0336,,BR,pt_br,PPF-2021.1,1
+83623752568,silmaracaldas@academico.ufs.br,SILMARA,CALDAS SANTOS,csd8362,,BR,pt_br,PPF-2021.1,1
+82968039504,thiago_lsduarte@academico.ufs.br,THIAGO,LIMA SANTANA DUARTE,csd8296,,BR,pt_br,PPF-2021.1,1
+05584953547,nenen15@academico.ufs.br,WAGNER,BARBOSA DA ROCHA SANTOS,csd0558,,BR,pt_br,PPF-2021.1,1
+05592250592,willamissantana63@academico.ufs.br,WILLAMIS,DE SANTANA ALVES,csd0559,,BR,pt_br,PPF-2021.1,1
+04884197518,yannamenezes@academico.ufs.br,YANNA,MENEZES BARBOSA,csd0488,,BR,pt_br,PPF-2021.1,1
