@@ -8,7 +8,7 @@
 
     <!--INICIO NAVBAR-->
     <nav class="navbar navbar-light d-flex shadow">
-        <div class="container-fluid">
+        <div class="container-fluid justify-content-end">
 
 
             <div class="offcanvas offcanvas-start" style="width: 74px;" data-bs-scroll="true" data-bs-backdrop="false"
@@ -54,8 +54,11 @@
     {{-- INICIO DO CONTAINER --}}
 
     <div class="mt-4 container">
+        <legend class="fs-1 fw-semibold">Relatório de acompanhamento</legend>
         <div class="row">
-            <div class="col-11  ">
+            <div class="d-flex align-items-start justify-content-between">
+
+            {{-- <div class="col-11  "> --}}
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
@@ -65,8 +68,8 @@
 
                 {{-- FIM DO BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
-            </div>
-            <div class="col-1">
+            {{-- </div> --}}
+            {{-- <div class="col-1"> --}}
 
                 {{-- JANELA DE FILTRAGEM --}}
 
@@ -149,7 +152,7 @@
                                 </div>
                             </li>
                             <li>
-                                <hr>  
+                                <hr>
                                 <div class="row p-2 ">
                                     <div class="col-11">
 
@@ -163,23 +166,24 @@
                     </ul>
                 </div>
 
-            </div>
+            {{-- </div> --}}
+        </div>
 
             {{-- FIM DA JANELA DE FILTRAGEM --}}
 
             {{-- INICIO DA DATATABLE --}}
 
             <div class="mt-4 col">
-                <table id="example" class="table table-striped datatables " style="width:100%">
+                <table id="example" class="table table-striped datatables table-responsive" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>Matrícula</th>
-                            <th>Curso</th>
-                            <th>Disciplina</th>
-                            <th>Polo</th>
-                            <th>Ações</th>
+                            <th class="th-nome">Nome</th>
+                            <th class="th-cpf">CPF</th>
+                            <th class="th-matricula">Matrícula</th>
+                            <th class="th-curso">Curso</th>
+                            <th class="th-disciplina">Disciplina</th>
+                            <th class="th-polo">Polo</th>
+                            <th class="th-acoes">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -259,65 +263,73 @@
                         <div class="mb-3">
                             {{-- <input class="form-control" type="text" placeholder="{{$value->nome_aluno}}" readonly> --}}
                             <form>
-                                <div class="row">
-                                    <div class="col">
-                                        <h6>Nome: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->nome_aluno }}"
-                                            readonly>
+                                <div class="dados-gerais">
+                                    <div class="row">
+                                        <div class="col-lg">
+                                            <h6>Nome: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->nome_aluno }}" readonly>
+                                        </div>
+                                        <div class="col-lg">
+                                            <h6>CPF: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->cpf_aluno }}" readonly>
+                                        </div>
+                                        <div class="col-lg">
+                                            <h6>Matrícula: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->matricula_aluno }}" readonly>
+                                        </div>
+                                        <div class="col-lg">
+                                            <h6>Polo: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->polo }}"
+                                                readonly>
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <h6>CPF: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->cpf_aluno }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>Matrícula: </h6>
-                                        <input type="text" class="form-control"
-                                            placeholder="{{ $value->matricula_aluno }}" readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>Código do Curso: </h6>
-                                        <input type="text" class="form-control"
-                                            placeholder="{{ $value->codigo_curso }}" readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>Código da Disciplina: </h6>
-                                        <input type="text" class="form-control"
-                                            placeholder="{{ $value->codigo_disciplina }}" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <h6>Polo: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->polo }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>AD1: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->ad1 }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>AP1: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->ap1 }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>AD2: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->ad2 }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>AP2: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->ap2 }}"
-                                            readonly>
-                                    </div>
-                                    <div class="col">
-                                        <h6>AP3: </h6>
-                                        <input type="text" class="form-control" placeholder="{{ $value->ap3 }}"
-                                            readonly>
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <h6>Código do Curso: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->codigo_curso }}" readonly>
+                                        </div>
+                                        <div class="col-md">
+                                            <h6>Código da Disciplina: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->codigo_disciplina }}" readonly>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="notas">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <h6>AD1: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->ad1 }}"
+                                                readonly>
+                                        </div>
+                                        <div class="col-sm">
+                                            <h6>AP1: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->ap1 }}"
+                                                readonly>
+                                        </div>
+                                        <div class="col-sm">
+                                            <h6>AD2: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->ad2 }}"
+                                                readonly>
+                                        </div>
+                                        <div class="col-sm">
+                                            <h6>AP2: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->ap2 }}"
+                                                readonly>
+                                        </div>
+                                        <div class="col-sm">
+                                            <h6>AP3: </h6>
+                                            <input type="text" class="form-control" placeholder="{{ $value->ap3 }}"
+                                                readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </form>
                         </div>
                     </div>
