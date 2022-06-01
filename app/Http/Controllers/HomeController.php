@@ -22,69 +22,69 @@ class HomeController extends Controller
     public function filtragem(Request $request)
     {
 
-        $select_curso = $request->input('select_select_curso');
-        $select_disciplina = $request->input('select_disc');
-        $select_polo = $request->input('select_polo');
-        $radio_media = $request->input('media');
+        $curso = $request->input('select_curso');
+        $disciplina = $request->input('select_disc');
+        $polo = $request->input('select_polo');
+        $media = $request->input('media');
 
         $data = [];
 
        
 
-        if (!empty($select_curso) && empty($select_disciplina) && empty($select_polo)){
-            $data = Dados::where('codigo_select_curso', $select_curso)->get();
+        if (!empty($curso) && empty($disciplina) && empty($polo)){
+            $data = Dados::where('codigo_curso', $curso)->get();
             
         } 
-        elseif (!empty($select_curso) && !empty($select_disciplina) && empty($polo)){
-            $data = Dados::where('codigo_select_curso', $select_curso)
-                            ->where('codigo_disciplina', $select_disciplina)->get();
+        elseif (!empty($curso) && !empty($disciplina) && empty($polo)){
+            $data = Dados::where('codigo_curso', $curso)
+                            ->where('codigo_disciplina', $disciplina)->get();
 
         } 
-        elseif (!empty($select_curso) && !empty($select_disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_select_curso', $select_curso)
-                            ->where('codigo_disciplina', $select_disciplina)
+        elseif (!empty($curso) && !empty($disciplina) && !empty($polo)){
+            $data = Dados::where('codigo_curso', $curso)
+                            ->where('codigo_disciplina', $disciplina)
                             ->where('polo', $polo)
                             ->get();
 
         } 
-        elseif (empty($select_curso) && !empty($select_disciplina) && empty($polo)){
-            $data = Dados::where('codigo_disciplina', $select_disciplina)->get();
+        elseif (empty($curso) && !empty($disciplina) && empty($polo)){
+            $data = Dados::where('codigo_disciplina', $disciplina)->get();
             
         } 
-        elseif (empty($select_curso) && !empty($select_disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_disciplina', $select_disciplina)
+        elseif (empty($curso) && !empty($disciplina) && !empty($polo)){
+            $data = Dados::where('codigo_disciplina', $disciplina)
                             ->where('polo', $polo)->get();
 
         }
-        elseif (empty($select_curso) && empty($select_disciplina) && !empty($polo)){
+        elseif (empty($curso) && empty($disciplina) && !empty($polo)){
             $data = Dados::where('polo', $polo)->get();
             
         } 
-        elseif (!empty($select_curso) && empty($select_disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_select_curso', $select_curso)
+        elseif (!empty($curso) && empty($disciplina) && !empty($polo)){
+            $data = Dados::where('codigo_curso', $curso)
                             ->where('polo', $polo)->get();
 
         } 
         
 
-        if ($radio_media == 1) {
-            $data = Dados::where('codigo_select_curso', $select_curso)->get();
-        }
+        // if ($media == 1) {
+            
+        // }
 
-        // $data = Dados::where(function($query) use($select_curso, $select_disciplina, $polo){
-        //     $query->orWhere('codigo_select_curso', $select_curso)->
-        //             orWhere('codigo_disciplina', $select_disciplina)->   
+        // $data = Dados::where(function($query) use($curso, $disciplina, $polo){
+        //     $query->orWhere('codigo_curso', $curso)->
+        //             orWhere('codigo_disciplina', $disciplina)->   
         //             orwhere('polo', $polo);
 
         // })->get();
 
 
-        // if (empty($select_curso) == false) {
-        //     $data = Dados::where('codigo_select_curso', $select_curso)->get();
+        // if (empty($curso) == false) {
+        //     $data = Dados::where('codigo_curso', $curso)->get();
         // }
 
-        // if (empty($select_disciplina) == false) {
-        //     $data = Dados::where('codigo_disciplina', $select_disciplina)->get();
+        // if (empty($disciplina) == false) {
+        //     $data = Dados::where('codigo_disciplina', $disciplina)->get();
         // }
 
         // if (empty($polo) == false) {
@@ -92,9 +92,9 @@ class HomeController extends Controller
         // }
 
 
-        // $data = Dados::where('codigo_select_curso', $select_curso)->orWhere('codigo_disciplina', $select_disciplina)->orWhere('polo', $polo)->get();
+        // $data = Dados::where('codigo_curso', $curso)->orWhere('codigo_disciplina', $disciplina)->orWhere('polo', $polo)->get();
 
-        // print_r($select_disciplina);
+        // print_r($disciplina);
         return view('site.home', ['titulo' => 'Home (teste)'], compact('data'));
     }
 }
