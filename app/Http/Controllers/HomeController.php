@@ -29,72 +29,365 @@ class HomeController extends Controller
 
         $data = [];
 
-       
 
-        if (!empty($curso) && empty($disciplina) && empty($polo)){
-            $data = Dados::where('codigo_curso', $curso)->get();
+
+        if (!empty($curso) && empty($disciplina) && empty($polo)) {
             
-        } 
-        elseif (!empty($curso) && !empty($disciplina) && empty($polo)){
-            $data = Dados::where('codigo_curso', $curso)
-                            ->where('codigo_disciplina', $disciplina)->get();
+                if ($media == 1) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','>=', 5)
+                            ->orWhere('ap1','>=', 5)
+                            ->orWhere('ad2','>=', 5)
+                            ->orWhere('ap2','>=', 5);
+                    })->get();
 
-        } 
-        elseif (!empty($curso) && !empty($disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_curso', $curso)
-                            ->where('codigo_disciplina', $disciplina)
-                            ->where('polo', $polo)
-                            ->get();
+                } elseif ($media == 2) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','<', 5)
+                            ->orWhere('ap1','<', 5)
+                            ->orWhere('ad2','<', 5)
+                            ->orWhere('ap2','<', 5);
+                    })->get();
 
-        } 
-        elseif (empty($curso) && !empty($disciplina) && empty($polo)){
-            $data = Dados::where('codigo_disciplina', $disciplina)->get();
+                } elseif ($media == 3) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1', 5)
+                            ->orWhere('ap1', 5)
+                            ->orWhere('ad2', 5)
+                            ->orWhere('ap2', 5);
+                    })->get();
+
+                } else {
+                    $data = Dados::where('codigo_curso', $curso)->get();
+                    
+                }
+
+        } elseif (!empty($curso) && !empty($disciplina) && empty($polo)) {
+
+            if ($media == 1) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_curso', $curso)
+                    ->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','>=', 5)
+                        ->orWhere('ap1','>=', 5)
+                        ->orWhere('ad2','>=', 5)
+                        ->orWhere('ap2','>=', 5);
+                })->get();
+
+            } elseif ($media == 2) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_curso', $curso)
+                        ->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','<', 5)
+                        ->orWhere('ap1','<', 5)
+                        ->orWhere('ad2','<', 5)
+                        ->orWhere('ap2','<', 5);
+                })->get();
+
+            } elseif ($media == 3) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_curso', $curso)
+                    ->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1', 5)
+                        ->orWhere('ap1', 5)
+                        ->orWhere('ad2', 5)
+                        ->orWhere('ap2', 5);
+                })->get();
+
+            } else {
+                $data = Dados::where('codigo_curso', $curso)
+                ->where('codigo_disciplina', $disciplina)->get();
+                
+            }
             
-        } 
-        elseif (empty($curso) && !empty($disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_disciplina', $disciplina)
-                            ->where('polo', $polo)->get();
-
-        }
-        elseif (empty($curso) && empty($disciplina) && !empty($polo)){
-            $data = Dados::where('polo', $polo)->get();
+                
+        } elseif (!empty($curso) && !empty($disciplina) && !empty($polo)) {
             
-        } 
-        elseif (!empty($curso) && empty($disciplina) && !empty($polo)){
-            $data = Dados::where('codigo_curso', $curso)
-                            ->where('polo', $polo)->get();
 
-        } 
+                if ($media == 1) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso)
+                        ->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','>=', 5)
+                            ->orWhere('ap1','>=', 5)
+                            ->orWhere('ad2','>=', 5)
+                            ->orWhere('ap2','>=', 5);
+                    })->get();
+    
+                } elseif ($media == 2) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                       $query->where('codigo_curso', $curso)
+                        ->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','<', 5)
+                            ->orWhere('ap1','<', 5)
+                            ->orWhere('ad2','<', 5)
+                            ->orWhere('ap2','<', 5);
+                    })->get();
+    
+                } elseif ($media == 3) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso)
+                        ->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1', 5)
+                            ->orWhere('ap1', 5)
+                            ->orWhere('ad2', 5)
+                            ->orWhere('ap2', 5);
+                    })->get();
+    
+                } else {
+                    $data = Dados::where('codigo_curso', $curso)
+                        ->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo)
+                        ->get();
+                    
+                }
+
+        } elseif (empty($curso) && !empty($disciplina) && empty($polo)) {
+            
+
+            if ($media == 1) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','>=', 5)
+                        ->orWhere('ap1','>=', 5)
+                        ->orWhere('ad2','>=', 5)
+                        ->orWhere('ap2','>=', 5);
+                })->get();
+    
+            } elseif ($media == 2) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','<', 5)
+                        ->orWhere('ap1','<', 5)
+                        ->orWhere('ad2','<', 5)
+                        ->orWhere('ap2','<', 5);
+                })->get();
+    
+            } elseif ($media == 3) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('codigo_disciplina', $disciplina);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1', 5)
+                        ->orWhere('ap1', 5)
+                        ->orWhere('ad2', 5)
+                        ->orWhere('ap2', 5);
+                })->get();
+    
+            } else {
+                $data = Dados::where('codigo_disciplina', $disciplina)->get();
+            }
+            
+
+        } elseif (empty($curso) && !empty($disciplina) && !empty($polo)) {
+            
+
+                if ($media == 1) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','>=', 5)
+                            ->orWhere('ap1','>=', 5)
+                            ->orWhere('ad2','>=', 5)
+                            ->orWhere('ap2','>=', 5);
+                    })->get();
+        
+                } elseif ($media == 2) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','<', 5)
+                            ->orWhere('ap1','<', 5)
+                            ->orWhere('ad2','<', 5)
+                            ->orWhere('ap2','<', 5);
+                    })->get();
+        
+                } elseif ($media == 3) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1', 5)
+                            ->orWhere('ap1', 5)
+                            ->orWhere('ad2', 5)
+                            ->orWhere('ap2', 5);
+                    })->get();
+        
+                } else {
+                    $data = Dados::where('codigo_disciplina', $disciplina)
+                        ->where('polo', $polo)->get();
+                }
+
+        } elseif (empty($curso) && empty($disciplina) && !empty($polo)) {
+            
+
+            if ($media == 1) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('polo', $polo);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','>=', 5)
+                        ->orWhere('ap1','>=', 5)
+                        ->orWhere('ad2','>=', 5)
+                        ->orWhere('ap2','>=', 5);
+                })->get();
+    
+            } elseif ($media == 2) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('polo', $polo);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1','<', 5)
+                        ->orWhere('ap1','<', 5)
+                        ->orWhere('ad2','<', 5)
+                        ->orWhere('ap2','<', 5);
+                })->get();
+    
+            } elseif ($media == 3) {
+                $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                    $query->where('polo', $polo);
+                })
+                ->where(function ($query) {
+                    $query->where('ad1', 5)
+                        ->orWhere('ap1', 5)
+                        ->orWhere('ad2', 5)
+                        ->orWhere('ap2', 5);
+                })->get();
+    
+            } else {
+                $data = Dados::where('polo', $polo)->get();
+            }
+
+        } elseif (!empty($curso) && empty($disciplina) && !empty($polo)) {
+            $data = Dados::where('codigo_curso', $curso)
+                ->where('polo', $polo)->get();
+
+                if ($media == 1) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','>=', 5)
+                            ->orWhere('ap1','>=', 5)
+                            ->orWhere('ad2','>=', 5)
+                            ->orWhere('ap2','>=', 5);
+                    })->get();
+        
+                } elseif ($media == 2) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1','<', 5)
+                            ->orWhere('ap1','<', 5)
+                            ->orWhere('ad2','<', 5)
+                            ->orWhere('ap2','<', 5);
+                    })->get();
+        
+                } elseif ($media == 3) {
+                    $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+                        $query->where('codigo_curso', $curso)
+                        ->where('polo', $polo);
+                    })
+                    ->where(function ($query) {
+                        $query->where('ad1', 5)
+                            ->orWhere('ap1', 5)
+                            ->orWhere('ad2', 5)
+                            ->orWhere('ap2', 5);
+                    })->get();
+        
+                } else {
+                    $data = Dados::where('codigo_curso', $curso)
+                ->where('polo', $polo)->get();
+                }
+        
         
 
+        }
+
+
+
+
+
+
         // if ($media == 1) {
-            
-        // }
+        //     $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+        //         $query->where('codigo_curso', $curso);
+        //     })
+        //     ->where(function ($query) {
+        //         $query->where('ad1','>=', 5)
+        //             ->orWhere('ap1','>=', 5)
+        //             ->orWhere('ad2','>=', 5)
+        //             ->orWhere('ap2','>=', 5);
+        //     })->get();
 
-        // $data = Dados::where(function($query) use($curso, $disciplina, $polo){
-        //     $query->orWhere('codigo_curso', $curso)->
-        //             orWhere('codigo_disciplina', $disciplina)->   
-        //             orwhere('polo', $polo);
+        // } elseif ($media == 2) {
+        //     $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+        //         $query->where('codigo_curso', $curso);
+        //     })
+        //     ->where(function ($query) {
+        //         $query->where('ad1','<', 5)
+        //             ->orWhere('ap1','<', 5)
+        //             ->orWhere('ad2','<', 5)
+        //             ->orWhere('ap2','<', 5);
+        //     })->get();
 
-        // })->get();
+        // } elseif ($media == 3) {
+        //     $data = Dados::where(function ($query) use ($curso, $disciplina, $polo) {
+        //         $query->where('codigo_curso', $curso);
+        //     })
+        //     ->where(function ($query) {
+        //         $query->where('ad1', 5)
+        //             ->orWhere('ap1', 5)
+        //             ->orWhere('ad2', 5)
+        //             ->orWhere('ap2', 5);
+        //     })->get();
 
-
-        // if (empty($curso) == false) {
+        // } else {
         //     $data = Dados::where('codigo_curso', $curso)->get();
         // }
 
-        // if (empty($disciplina) == false) {
-        //     $data = Dados::where('codigo_disciplina', $disciplina)->get();
-        // }
-
-        // if (empty($polo) == false) {
-        //     $data = Dados::where('polo', $polo)->get();
-        // }
 
 
-        // $data = Dados::where('codigo_curso', $curso)->orWhere('codigo_disciplina', $disciplina)->orWhere('polo', $polo)->get();
+       
 
-        // print_r($disciplina);
+       
         return view('site.home', ['titulo' => 'Home (teste)'], compact('data'));
     }
 }

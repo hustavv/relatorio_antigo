@@ -101,6 +101,24 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <div class="col-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="ad1" value="1" id="ad1">
+                                            <label class="form-check-label" for="ad1">
+                                                AD-1
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="ap1" value="1" id="ap1">
+                                            <label class="form-check-label" for="ap1">
+                                                AP-1
+                                            </label>
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -126,6 +144,24 @@
                                         </div>
 
                                     </div>
+                                    <div class="col-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="ad2" value="1" id="ad2">
+                                            <label class="form-check-label" for="ad2">
+                                                AD-2
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="ap2" value="1" id="ap2">
+                                            <label class="form-check-label" for="ap2">
+                                                AP-2
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                             <li>
@@ -146,6 +182,15 @@
                                             <input class="form-check-input" type="radio" name="media" value="3" id="media3">
                                             <label class="form-check-label" for="media3">
                                                 Nota sem aproveitamento
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="ap3" value="1" id="ap3">
+                                            <label class="form-check-label" for="ap3">
+                                                AP-3
                                             </label>
                                         </div>
                                     </div>
@@ -184,6 +229,15 @@
                             <th class="th-disciplina">Disciplina</th>
                             <th class="th-polo">Polo</th>
                             <th class="th-acoes">Ações</th>
+
+                            {{-- COLUNAS INVISÍVEIS PARA EXPORTAÇÃO --}}
+                            <th>AD1</th>
+                            <th>AP1</th>
+                            <th>AD2</th>
+                            <th>AP2</th>
+                            <th>AP3</th>
+                            {{-- FIM DAS COLUNAS INVISÍVEIS --}}
+
                         </tr>
                     </thead>
                     <tbody>
@@ -201,6 +255,15 @@
                                         data-bs-target="#ModalDetalhes{{ $value->id_relatorio }}">Detalhes</button>
 
                                 </td>
+
+                                {{-- COLUNAS INVISÍVEIS PARA EXPORTAÇÃO --}}
+                                <td>{{$value->ad1}}</td>
+                                <td>{{$value->ap1}}</td>
+                                <td>{{$value->ad2}}</td>
+                                <td>{{$value->ap2}}</td>
+                                <td>{{$value->ap3}}</td>
+                                {{-- FIM DAS COLUNAS INVISÍVEIS --}}
+
                             </tr>
                         @endforeach
                     </tbody>
