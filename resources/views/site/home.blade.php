@@ -58,7 +58,7 @@
         <div class="row">
             <div class="d-flex align-items-start justify-content-between">
 
-            {{-- <div class="col-11  "> --}}
+                {{-- <div class="col-11  "> --}}
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
@@ -68,151 +68,126 @@
 
                 {{-- FIM DO BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
-            {{-- </div> --}}
-            {{-- <div class="col-1"> --}}
+                {{-- </div> --}}
+                {{-- <div class="col-1"> --}}
 
                 {{-- JANELA DE FILTRAGEM --}}
 
-                <div class="btn-group dropstart ">
+                <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle mb-3" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="">
+                        aria-expanded="false" style="" data-bs-display="static">
                         Filtros
                     </button>
-                    <ul class="dropdown-menu dropstart shadow" style="width: 60rem">
-                        <form action="{{ route('site.filtro') }}" method="post">
-                            @csrf
-                            <li>
-                                <div class="row p-2">
-                                    <div class="col-4">
-                                        <select class="form-select" aria-label="Default select example"
-                                            name="select_curso">
-                                            <option value="" selected>Selecione o curso Curso</option>
-                                            <option value="Administração">Administração</option>
-                                            <option value="Engenharia">Engenharia</option>
-                                            <option value="Matemática">Matemática</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4">
+                    {{-- <ul class="dropdown-menu dropstart shadow" style="width: 60rem"> --}}
+                    <form class="dropdown-menu dropdown-menu-end dropdown-menu-start shadow breakpoint-filter"
+                        action="{{ route('site.filtro') }}" method="post">
+                        @csrf
+                        <li>
+                            <div class="row p-2">
+                                <div class="col-md filter-group">
+                                    <select class="form-select" aria-label="Default select example" name="select_curso">
+                                        <option value="" selected>Selecione o Curso</option>
+                                        <option value="Administração">Administração</option>
+                                        <option value="Engenharia">Engenharia</option>
+                                        <option value="Matemática">Matemática</option>
+                                    </select>
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="media" value="1" id="media1">
-                                            <label class="form-check-label" for="media1">
-                                                Acima da média
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
+                                    <select class="form-select" aria-label="Default select example" name="select_disc">
+                                        <option value="" selected>Selecione a Disciplina</option>
+                                        <option value="Ética">Ética</option>
+                                        <option value="Cáculo I">Cálculo I</option>
+                                        <option value="Física I">Física I</option>
+                                    </select>
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="ad1" value="1" id="ad1">
-                                            <label class="form-check-label" for="ad1">
-                                                AD-1
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="ap1" value="1" id="ap1">
-                                            <label class="form-check-label" for="ap1">
-                                                AP-1
-                                            </label>
-                                        </div>
-                                    </div>
-
-
+                                    <select class="form-select" aria-label="Default select example" name="select_polo">
+                                        <option value="" selected>Selecione o Polo</option>
+                                        <option value="aracaju">Aracaju</option>
+                                        <option value="são cristovão">São Cristovão</option>
+                                        <option value="lagarto">Lagarto</option>
+                                    </select>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="row p-2">
-                                    <div class="col-4">
-                                        <select class="form-select" aria-label="Default select example"
-                                            name="select_disc">
-                                            <option value="" selected>Selecione a Disciplina</option>
-                                            <option value="Ética">Ética</option>
-                                            <option value="Cáculo I">Cálculo I</option>
-                                            <option value="Física I">Física I</option>
-                                        </select>
+                                <div class="col-md filter-group">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="media" value="1" id="media1">
+                                        <label class="form-check-label" for="media1">
+                                            Acima da média
+                                        </label>
                                     </div>
-                                    <div class="col-4">
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="media" value="2" id="media2">
-                                            <label class="form-check-label" for="media2">
-                                                Abaixo da média
-                                            </label>
-                                        </div>
-
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="media" value="2" id="media2">
+                                        <label class="form-check-label" for="media2">
+                                            Abaixo da média
+                                        </label>
                                     </div>
-                                    <div class="col-2">
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="ad2" value="1" id="ad2">
-                                            <label class="form-check-label" for="ad2">
-                                                AD-2
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="ap2" value="1" id="ap2">
-                                            <label class="form-check-label" for="ap2">
-                                                AP-2
-                                            </label>
-                                        </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="media" value="3" id="media3">
+                                        <label class="form-check-label" for="media3">
+                                            Nota sem aproveitamento
+                                        </label>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="row p-2">
-                                    <div class="col-4">
-                                        <select class="form-select" aria-label="Default select example"
-                                            name="select_polo">
-                                            <option value="" selected>Selecione o Polo</option>
-                                            <option value="aracaju">Aracaju</option>
-                                            <option value="são cristovão">São Cristovão</option>
-                                            <option value="lagarto">Lagarto</option>
-                                        </select>
+                                <div class="col-md filter-group">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ad1" value="1" id="ad1">
+                                        <label class="form-check-label" for="ad1">
+                                            AD-1
+                                        </label>
                                     </div>
-                                    <div class="col-4">
 
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="media" value="3" id="media3">
-                                            <label class="form-check-label" for="media3">
-                                                Nota sem aproveitamento
-                                            </label>
-                                        </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ad2" value="1" id="ad2">
+                                        <label class="form-check-label" for="ad2">
+                                            AD-2
+                                        </label>
                                     </div>
-                                    <div class="col-2">
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="ap3" value="1" id="ap3">
-                                            <label class="form-check-label" for="ap3">
-                                                AP-3
-                                            </label>
-                                        </div>
+                                </div>
+                                <div class="col-md filter-group">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ap1" value="1" id="ap1">
+                                        <label class="form-check-label" for="ap1">
+                                            AP-1
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ap2" value="1" id="ap2">
+                                        <label class="form-check-label" for="ap2">
+                                            AP-2
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ap3" value="1" id="ap3">
+                                        <label class="form-check-label" for="ap3">
+                                            AP-3
+                                        </label>
                                     </div>
                                 </div>
-                            </li>
-                            <li>
-                                <hr>
-                                <div class="row p-2 ">
-                                    <div class="col-11">
+                            </div>
+                        </li>
+                        <li>
+                            <hr>
+                            <div class="row p-2 ">
+                                <div class="col-11">
 
-                                    </div>
-                                    <div class="col-1">
-                                        <button type="submit" class="btn btn-success p-2 ">Filtrar</button>
-                                    </div>
                                 </div>
-                            </li>
-                        </form>
-                    </ul>
+                                <div class="col-lg d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-success p-2 ">Filtrar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </form>
+                    {{-- </ul> --}}
                 </div>
 
-            {{-- </div> --}}
-        </div>
+                {{-- </div> --}}
+            </div>
 
             {{-- FIM DA JANELA DE FILTRAGEM --}}
 
@@ -257,11 +232,11 @@
                                 </td>
 
                                 {{-- COLUNAS INVISÍVEIS PARA EXPORTAÇÃO --}}
-                                <td>{{$value->ad1}}</td>
-                                <td>{{$value->ap1}}</td>
-                                <td>{{$value->ad2}}</td>
-                                <td>{{$value->ap2}}</td>
-                                <td>{{$value->ap3}}</td>
+                                <td>{{ $value->ad1 }}</td>
+                                <td>{{ $value->ap1 }}</td>
+                                <td>{{ $value->ad2 }}</td>
+                                <td>{{ $value->ap2 }}</td>
+                                <td>{{ $value->ap3 }}</td>
                                 {{-- FIM DAS COLUNAS INVISÍVEIS --}}
 
                             </tr>
@@ -413,5 +388,10 @@
         });
     </script> --}}
 
+    <script>
+        $('.dropdown-menu').on("click.bs.dropdown", function(e) {
+            e.stopPropagation();
+        });
+    </script>
 
 @endsection

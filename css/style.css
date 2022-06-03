@@ -61,6 +61,17 @@ nav {
     margin-top: 0.5rem;
 }
 
+.buttons-csv{
+    background-color: #0d6efd !important;
+    color: #FFF !important;
+    border-color: #0d6efd !important;
+    border-radius: 0.25rem !important;
+}
+
+.filter-group div+div,
+.filter-group select+select{
+    margin-top: 0.5rem !important;
+}
 
 .sidebar-responsivo {
     height: 100%;
@@ -318,6 +329,31 @@ table {
 .table tbody>tr:nth-child(odd)>td,
 .table tbody>tr:nth-child(odd)>th {
     background-color: #f8f8f8;
+}
+
+.breakpoint-filter{
+    width: 45vw;
+}
+
+@media (max-width: 1400px){
+    .breakpoint-filter{
+        width: 55vw;
+    }
+    
+}
+
+@media (max-width: 1200px){
+    .breakpoint-filter{
+        width: 65vw;
+    }
+    
+}
+
+@media (max-width: 991px){
+    .breakpoint-filter{
+        width: 80vw;
+    }
+    
 }
 
 /* Small Sizes */
