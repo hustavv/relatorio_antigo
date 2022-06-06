@@ -61,7 +61,7 @@ nav {
     margin-top: 0.5rem;
 }
 
-.buttons-csv ,
+.buttons-csv,
 .buttons-pdf,
 .buttons-excel {
     background-color: #0d6efd !important;
@@ -71,7 +71,7 @@ nav {
 }
 
 .filter-group div+div,
-.filter-group select+select{
+.filter-group select+select {
     margin-top: 0.5rem !important;
 }
 
@@ -102,6 +102,60 @@ nav {
     background: #0d6efd !important;
 }
 
+.checkbox-box{
+    display: inline-flex;    
+}
+
+.checkbox-box input{
+    display: none;
+}
+
+.checkbox-box label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    font-weight: 600;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.checkbox-box label::before{
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\2719";
+    transition: transform .3s ease-in-out;
+}
+
+.checkbox-box input:checked + label::before{
+    content: "\2714";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+.checkbox-box input:checked +label{
+    border: 2px solid #227bff;
+    background-color: #0d6efd;
+    color: #fff;
+    transition: all .2s;
+}
 
 .sidebar-responsivo {
     height: 100%;
@@ -362,10 +416,11 @@ table {
 }
 
 .breakpoint-filter {
-    width: 45vw;
+    width: 50vw;
 }
 
 /* Breakpoint pra o filtro */
+
 @media (max-width: 1400px) {
     .breakpoint-filter {
         width: 55vw;
@@ -387,7 +442,7 @@ table {
 
 }
 
-@media (max-width: 575px){
+@media (max-width: 575px) {
     .breakpoint-filter {
         width: 95vw;
     }
@@ -404,10 +459,10 @@ table {
     .radio-button-label{
         width: 100%;
     }
+    
 }
 
 /* Breakpoint pra o filtro */
-
 
 /* Small Sizes */
 
@@ -419,6 +474,7 @@ table {
         position: relative;
         width: 100%;
     }
+
     .radio-button-filter{
         display: flex !important;
         align-items: center !important;
@@ -432,6 +488,7 @@ table {
     .filter-group+.filter-group {
         margin-top: 1.2rem !important;
     }
+
     .table-responsive thead,
     .table-responsive tbody,
     .table-responsive th,

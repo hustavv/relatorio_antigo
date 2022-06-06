@@ -129,42 +129,38 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-md filter-group">
+                                <div class="col-md filter-group checkbox-filter">
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ad1" value="1" id="ad1">
-                                        <label class="form-check-label" for="ad1">
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ad1" value="1" id="ad1">
+                                        <label for="ad1">
                                             AD-1
                                         </label>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ad2" value="1" id="ad2">
-                                        <label class="form-check-label" for="ad2">
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ad2" value="1" id="ad2">
+                                        <label for="ad2">
                                             AD-2
                                         </label>
                                     </div>
-
-                                </div>
-                                <div class="col-md filter-group">
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ap1" value="1" id="ap1">
-                                        <label class="form-check-label" for="ap1">
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ap1" value="1" id="ap1">
+                                        <label for="ap1">
                                             AP-1
                                         </label>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ap2" value="1" id="ap2">
-                                        <label class="form-check-label" for="ap2">
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ap2" value="1" id="ap2">
+                                        <label for="ap2">
                                             AP-2
                                         </label>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ap3" value="1" id="ap3">
-                                        <label class="form-check-label" for="ap3">
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ap3" value="1" id="ap3">
+                                        <label for="ap3">
                                             AP-3
                                         </label>
                                     </div>
