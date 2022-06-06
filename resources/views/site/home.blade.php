@@ -106,25 +106,25 @@
                                         <option value="lagarto">Lagarto</option>
                                     </select>
                                 </div>
-                                <div class="col-md filter-group">
+                                <div class="col-md filter-group radio-button-filter">
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="media" value="1" id="media1">
-                                        <label class="form-check-label" for="media1">
+                                    <div class="radio-button-box">
+                                        <input class="radio-button-display" type="radio" name="media" value="1" id="media1">
+                                        <label class="radio-button-label" for="media1">
                                             Acima da média
                                         </label>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="media" value="2" id="media2">
-                                        <label class="form-check-label" for="media2">
+                                    <div class="radio-button-box">
+                                        <input class="radio-button-display" type="radio" name="media" value="2" id="media2">
+                                        <label class="radio-button-label" for="media2">
                                             Abaixo da média
                                         </label>
                                     </div>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="media" value="3" id="media3">
-                                        <label class="form-check-label" for="media3">
+                                    <div class="radio-button-box">
+                                        <input class="radio-button-display" type="radio" name="media" value="3" id="media3">
+                                        <label class="radio-button-label" for="media3">
                                             Nota sem aproveitamento
                                         </label>
                                     </div>
