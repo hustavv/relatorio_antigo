@@ -423,7 +423,22 @@
                     // 'pdfHtml5',
 
                     {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11]
+                        }
+
+                    },
+
+                    {
                         extend: 'csvHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11]
+                        }
+                    },
+
+                    {
+                        extend: 'pdfHtml5',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11]
                         }
