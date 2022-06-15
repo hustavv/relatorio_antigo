@@ -8,7 +8,10 @@ body {
     min-height: 100%;
     overflow-x: hidden;
 }
-
+.red
+{
+    background-color:red;
+}
 
 nav {
     background-color: #306BA5;
@@ -69,10 +72,13 @@ nav {
     border-color: #0d6efd !important;
     border-radius: 0.25rem !important;
 }
-
+.filter-group {
+    border-right: 1px solid #ccc;
+}
 .filter-group div+div,
 .filter-group select+select {
     margin-top: 0.5rem !important;
+    
 }
 
 .radio-button-display {
@@ -85,6 +91,7 @@ nav {
     padding: 0.5rem;
     cursor: pointer;
     transition: all 0.3s;
+    width: 100%;
 }
 
 .radio-button-display:checked+.radio-button-label {
@@ -104,6 +111,11 @@ nav {
 
 .checkbox-box{
     display: inline-flex;    
+    justify-content: center;
+}
+#checkbox-box-media {
+    display: flex;    
+    flex-direction: column;
 }
 
 .checkbox-box input{
@@ -416,7 +428,7 @@ table {
 }
 
 .breakpoint-filter {
-    width: 50vw;
+    width: 60vw;
 }
 
 /* Breakpoint pra o filtro */
@@ -483,10 +495,12 @@ table {
 
     .radio-button-box+.radio-button-box{
         margin-top: 0 !important;
+
     }
 
     .filter-group+.filter-group {
         margin-top: 1.2rem !important;
+        
     }
 
     .table-responsive thead,

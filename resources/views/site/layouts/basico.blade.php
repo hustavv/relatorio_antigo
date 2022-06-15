@@ -151,6 +151,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+
     {{-- FIM --}}
     {{-- <script>
         $(document).ready(function() {
@@ -169,7 +171,125 @@
 
     <script>
         $(document).ready(function() {
+
+            $("#n1").on('change', function(){
+                if (this.checked) {
+                 
+                $("#ad1").attr("disabled", "disabled");
+                $("#ap1").attr("disabled", "disabled");
+                $("#ad2").attr("disabled", "disabled");
+                $("#ap2").attr("disabled", "disabled");
+                $("#ap3").attr("disabled", "disabled");
+                $("#ad1").prop("checked", false);
+                $("#ap1").prop("checked", false);
+                $("#ad2").prop("checked", false);
+                $("#ap2").prop("checked", false);
+                $("#ap3").prop("checked", false);
+                
+
+                } else{
+
+                $("#ad1").removeAttr('disabled');
+                $("#ap1").removeAttr('disabled');
+                $("#ad2").removeAttr('disabled');
+                $("#ap2").removeAttr('disabled');
+                $("#ap3").removeAttr('disabled');
+                
+
+                }
+            });
+
+            $("#n2").on('change', function(){
+                if (this.checked) {
+                    
+                $("#ad1").attr("disabled", "disabled");
+                $("#ap1").attr("disabled", "disabled");
+                $("#ad2").attr("disabled", "disabled");
+                $("#ap2").attr("disabled", "disabled");
+                $("#ap3").attr("disabled", "disabled");
+                $("#ad1").prop("checked", false);
+                $("#ap1").prop("checked", false);
+                $("#ad2").prop("checked", false);
+                $("#ap2").prop("checked", false);
+                $("#ap3").prop("checked", false);
+                
+                } else{
+
+                $("#ad1").removeAttr('disabled');
+                $("#ap1").removeAttr('disabled');
+                $("#ad2").removeAttr('disabled');
+                $("#ap2").removeAttr('disabled');
+                $("#ap3").removeAttr('disabled');
+
+                }
+            });
+            $("#mf").on('change', function(){
+                if (this.checked) {
+                    
+                $("#ad1").attr("disabled", "disabled");
+                $("#ap1").attr("disabled", "disabled");
+                $("#ad2").attr("disabled", "disabled");
+                $("#ap2").attr("disabled", "disabled");
+                $("#ap3").attr("disabled", "disabled");
+                $("#n1").attr("disabled", "disabled");
+                $("#n2").attr("disabled", "disabled");
+                $("#ad1").prop("checked", false);
+                $("#ap1").prop("checked", false);
+                $("#ad2").prop("checked", false);
+                $("#ap2").prop("checked", false);
+                $("#ap3").prop("checked", false);
+                $("#n1").prop("checked", false);
+                $("#n2").prop("checked", false);
+                
+
+                } else{
+
+                $("#ad1").removeAttr('disabled');
+                $("#ap1").removeAttr('disabled');
+                $("#ad2").removeAttr('disabled');
+                $("#ap2").removeAttr('disabled');
+                $("#ap3").removeAttr('disabled');
+                $("#n1").removeAttr('disabled');
+                $("#n2").removeAttr('disabled');
+
+                }
+            });
+
+
+
+
+            $("#select_curso").change(function(){
+                const url = $('#selectForm').attr("data-disc-url");
+                selectCurso = $(this).val();
+                $.ajax({
+                    url : url,
+                    data: {
+                        'select_curso': selectCurso,
+                    },
+                    success: function(data){
+                        $('#select_disc').html(data);
+                    }
+                });
+
+            });
+            $("#select_disc").change(function(){
+                const url = $('#selectForm').attr("data-curso-url");
+                selectDisc = $(this).val();
+                $.ajax({
+                    url : url,
+                    data: {
+                        'select_disc': selectDisc,
+                    },
+                    success: function(data){
+                        $('#select_curso').html(data);
+                    }
+                });
+
+            });
+
+
             $('.datatables').DataTable({
+
 
                 language: {
                     "emptyTable": "Nenhum registro encontrado",
@@ -473,6 +593,7 @@
             });
         });
     </script>
+    
 
     @yield('conteudo')
 

@@ -54,7 +54,7 @@
     {{-- INICIO DO CONTAINER --}}
 
     <div class="mt-4 container">
-        <legend class="fs-1 fw-semibold">Relatório de acompanhamento</legend>
+        <legend class="fs-1 fw-semibold">Relatório de acompanhamento de notas</legend>
         <div class="row">
             <div class="d-flex align-items-start justify-content-between">
 
@@ -79,35 +79,51 @@
                         Filtros
                     </button>
                     {{-- <ul class="dropdown-menu dropstart shadow" style="width: 60rem"> --}}
-                    <form class="dropdown-menu dropdown-menu-end dropdown-menu-start shadow breakpoint-filter"
-                        action="{{ route('site.filtro') }}" method="post">
+                    <form name="selectForm" id="selectForm"
+                        class="dropdown-menu dropdown-menu-end dropdown-menu-start shadow breakpoint-filter"
+                        action="{{ route('site.filtro') }}" method="post" data-disc-url="{{ route('load.disc') }}"
+                        data-curso-url="{{ route('load.curso') }}">
                         @csrf
+
                         <li>
                             <div class="row p-2">
+                                
                                 <div class="col-md filter-group">
-                                    <select class="form-select" aria-label="Default select example" name="select_curso">
+                                    <p class="text-center">Oferta</p>
+                                    <select class="form-select" aria-label="Default select example" name="select_curso"
+                                        id="select_curso">
                                         <option value="" selected>Selecione o Curso</option>
-                                        <option value="Administração">Administração</option>
-                                        <option value="Engenharia">Engenharia</option>
-                                        <option value="Matemática">Matemática</option>
+                                        @foreach ($lista_cursos as $key => $select_curso)
+                                            <option value="{{ $select_curso->nome }}">{{ $select_curso->nome }}</option>
+                                        @endforeach
+                                       
                                     </select>
 
-                                    <select class="form-select" aria-label="Default select example" name="select_disc">
+                                    <select class="form-select" aria-label="Default select example" name="select_disc"
+                                        id="select_disc">
                                         <option value="" selected>Selecione a Disciplina</option>
-                                        <option value="Ética">Ética</option>
-                                        <option value="Cáculo I">Cálculo I</option>
-                                        <option value="Física I">Física I</option>
+                                        @foreach ($lista_disc as $key => $select_disc)
+                                            <option value="{{ $select_disc->nome }}">
+                                                {{ $select_disc->codigodisciplina }} -
+                                                {{ $select_disc->nome }}</option>
+                                        @endforeach
+                                        
                                     </select>
 
-                                    <select class="form-select" aria-label="Default select example" name="select_polo">
+                                    <select class="form-select" aria-label="Default select example" name="select_polo"
+                                        id="select_polo">
+
                                         <option value="" selected>Selecione o Polo</option>
-                                        <option value="aracaju">Aracaju</option>
-                                        <option value="são cristovão">São Cristovão</option>
-                                        <option value="lagarto">Lagarto</option>
+                                        @foreach ($lista_polos as $key => $select_polo)
+                                            <option value="{{ $select_polo->nome }}">{{ $select_polo->nome }}</option>
+                                        @endforeach
+                                        
                                     </select>
+                                    
                                 </div>
+                                
                                 <div class="col-md filter-group radio-button-filter">
-
+                                    <p class="text-center">Filtros</p>
                                     <div class="radio-button-box">
                                         <input class="radio-button-display" type="radio" name="media" value="1" id="media1">
                                         <label class="radio-button-label" for="media1">
@@ -130,24 +146,23 @@
                                     </div>
                                 </div>
                                 <div class="col-md filter-group checkbox-filter">
-
+                                    <p class="text-center">Avaliações</p>
                                     <div class="checkbox-box">
                                         <input type="checkbox" name="ad1" value="1" id="ad1">
                                         <label for="ad1">
                                             AD-1
                                         </label>
                                     </div>
-
-                                    <div class="checkbox-box">
-                                        <input type="checkbox" name="ad2" value="1" id="ad2">
-                                        <label for="ad2">
-                                            AD-2
-                                        </label>
-                                    </div>
                                     <div class="checkbox-box">
                                         <input type="checkbox" name="ap1" value="1" id="ap1">
                                         <label for="ap1">
                                             AP-1
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-box">
+                                        <input type="checkbox" name="ad2" value="1" id="ad2">
+                                        <label for="ad2">
+                                            AD-2
                                         </label>
                                     </div>
 
@@ -162,6 +177,28 @@
                                         <input type="checkbox" name="ap3" value="1" id="ap3">
                                         <label for="ap3">
                                             AP-3
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md filter-group checkbox-filter">
+                                    <p class="text-center">Médias</p>
+                                    <div class="checkbox-box" id="checkbox-box-media">
+                                        <input type="checkbox" name="n1" value="1" id="n1">
+                                        <label for="n1">
+                                            Nota 1
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-box " id="checkbox-box-media">
+                                        <input type="checkbox" name="n2" value="1" id="n2">
+                                        <label for="n2">
+                                            Nota 2
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-box" id="checkbox-box-media">
+                                        <input type="checkbox" name="mf" value="1" id="mf">
+                                        <label for="mf">
+                                            Média Final
                                         </label>
                                     </div>
                                 </div>
@@ -389,5 +426,13 @@
             e.stopPropagation();
         });
     </script>
+
+    {{-- <script type="text/javascript">
+    $(document).ready(function(){
+       
+    });
+        
+    </script> --}}
+
 
 @endsection
