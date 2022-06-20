@@ -147,33 +147,35 @@
                                 </div>
                                 <div class="col-md filter-group checkbox-filter">
                                     <p class="text-center">Avaliações</p>
-                                    <div class="checkbox-box">
+                                    <div class="checkbox-box checkbox-box-small">
                                         <input type="checkbox" name="ad1" value="1" id="ad1">
                                         <label for="ad1">
                                             AD-1
                                         </label>
-                                    </div>
-                                    <div class="checkbox-box">
                                         <input type="checkbox" name="ap1" value="1" id="ap1">
                                         <label for="ap1">
                                             AP-1
                                         </label>
                                     </div>
-                                    <div class="checkbox-box">
+                                    {{-- <div class="checkbox-box">
+                                        
+                                    </div> --}}
+                                    <div class="checkbox-box checkbox-box-small">
                                         <input type="checkbox" name="ad2" value="1" id="ad2">
                                         <label for="ad2">
                                             AD-2
                                         </label>
-                                    </div>
-
-                                    <div class="checkbox-box">
                                         <input type="checkbox" name="ap2" value="1" id="ap2">
                                         <label for="ap2">
                                             AP-2
                                         </label>
                                     </div>
 
-                                    <div class="checkbox-box">
+                                    {{-- <div class="checkbox-box">
+                                       
+                                    </div> --}}
+
+                                    <div class="checkbox-box checkbox-box-small">
                                         <input type="checkbox" name="ap3" value="1" id="ap3">
                                         <label for="ap3">
                                             AP-3
@@ -183,19 +185,19 @@
                                 </div>
                                 <div class="col-md filter-group checkbox-filter">
                                     <p class="text-center">Médias</p>
-                                    <div class="checkbox-box" id="checkbox-box-media">
+                                    <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n1" value="1" id="n1">
                                         <label for="n1">
                                             Nota 1
                                         </label>
                                     </div>
-                                    <div class="checkbox-box " id="checkbox-box-media">
+                                    <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n2" value="1" id="n2">
                                         <label for="n2">
                                             Nota 2
                                         </label>
                                     </div>
-                                    <div class="checkbox-box" id="checkbox-box-media">
+                                    <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="mf" value="1" id="mf">
                                         <label for="mf">
                                             Média Final

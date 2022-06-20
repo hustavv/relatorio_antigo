@@ -109,9 +109,18 @@ nav {
     background: #0d6efd !important;
 }
 
+.checkbox-filter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .checkbox-box{
-    display: inline-flex;    
-    justify-content: center;
+    display: inline-flex;  
+}
+
+.checkbox-box-large{
+    width: 100%;
 }
 #checkbox-box-media {
     display: flex;    
@@ -140,6 +149,10 @@ nav {
     transition: all .2s;
     padding: 8px 12px;
     cursor: pointer;
+}
+
+.checkbox-box-small{
+    gap: 0.5rem;
 }
 
 .checkbox-box label::before{
@@ -462,15 +475,9 @@ table {
     .radio-button-filter{
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 0.5rem;
     }
 
-    .radio-button-box{
-        width: 100%;
-    }
-    .radio-button-label{
-        width: 100%;
-    }
+    
     
 }
 
@@ -489,10 +496,22 @@ table {
 
     .radio-button-filter{
         display: flex !important;
+        flex-direction: column;
         align-items: center !important;
         justify-content: space-between !important;
+        gap: 0.5rem;
     }
-
+    .checkbox-box-small{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .radio-button-box{
+        width: 100%;
+    }
+    .radio-button-label{
+        width: 100%;
+    }
     .radio-button-box+.radio-button-box{
         margin-top: 0 !important;
 
