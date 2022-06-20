@@ -48,15 +48,18 @@ Route::get('/{cpf}', function (string $cpf) {
         if ($_SESSION['idusuariotipo'] == 4) {
             return redirect()->route('site.index');
         } else {
-            dd($_SESSION);
+            return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+            // dd($_SESSION);
         }
     } else {
         return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
     }
 
-    // return redirect()->route('site.index');
-});
-Route::middleware('AuthMd')->prefix('/relatorio_antigo')->group(function () {
+    return redirect()->route('site.index');
+})->name('site.auth');
+
+
+Route::middleware('AuthMd')->prefix('/relatorio')->group(function () {
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('site.index');
 
     Route::post('/home/filtro', [\App\Http\Controllers\HomeController::class, 'filtragem'])->name('site.filtro');
@@ -64,7 +67,9 @@ Route::middleware('AuthMd')->prefix('/relatorio_antigo')->group(function () {
     Route::get('home/filtro-disciplina', [\App\Http\Controllers\HomeController::class, 'loadDisc'])->name('load.disc');
     Route::get('home/filtro-curso', [\App\Http\Controllers\HomeController::class, 'loadCurso'])->name('load.curso');
     Route::post('/import', [App\Http\Controllers\HomeController::class, 'import'])->name('dados.import');
+    
 });
+Route::redirect('/', '/relatorio/home');
 
 
 

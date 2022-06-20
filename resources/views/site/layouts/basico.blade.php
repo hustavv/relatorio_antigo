@@ -174,7 +174,7 @@
 
             $("#n1").on('change', function(){
                 if (this.checked) {
-                 
+                    $("#ad1").css("color","yellow");
                 $("#ad1").attr("disabled", "disabled");
                 $("#ap1").attr("disabled", "disabled");
                 $("#ad2").attr("disabled", "disabled");
@@ -185,6 +185,7 @@
                 $("#ad2").prop("checked", false);
                 $("#ap2").prop("checked", false);
                 $("#ap3").prop("checked", false);
+                $("#ad1").css("color","yellow");
                 
 
                 } else{

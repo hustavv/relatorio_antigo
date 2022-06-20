@@ -147,8 +147,8 @@
                                 </div>
                                 <div class="col-md filter-group checkbox-filter">
                                     <p class="text-center">Avaliações</p>
-                                    <div class="checkbox-box checkbox-box-small">
-                                        <input type="checkbox" name="ad1" value="1" id="ad1">
+                                    <div class="checkbox-box checkbox-box-small" >
+                                        <input type="checkbox" name="ad1" value="1" id="ad1" >
                                         <label for="ad1">
                                             AD-1
                                         </label>
