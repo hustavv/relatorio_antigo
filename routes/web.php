@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Redirect;
 
 
 
-Route::get('/{cpf}', function (string $cpf) {
+Route::get('relatorio/{cpf}', function (string $cpf) {
 
     $tabela = DB::table('usuario');
 
     $usuario = $tabela->where('cpf', $cpf)->get()->first();
+    // dd($usuario->nome);
+   
 
     if (isset($usuario->nome)) {
         //dd($usuario);
@@ -47,29 +49,38 @@ Route::get('/{cpf}', function (string $cpf) {
 
         if ($_SESSION['idusuariotipo'] == 4) {
             return redirect()->route('site.index');
+            // echo "teste1";
+           
         } else {
-            return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+            // return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
             // dd($_SESSION);
+            echo "teste2";
+            
         }
     } else {
-        return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+        // return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+        echo "teste3";
     }
-
-    return redirect()->route('site.index');
+    // dd($cpf);
+    // return redirect()->route('site.index');
 })->name('site.auth');
 
 
 Route::middleware('AuthMd')->prefix('/relatorio')->group(function () {
-    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('site.index');
+    Route::get('/relatorio/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('site.index');
 
     Route::post('/home/filtro', [\App\Http\Controllers\HomeController::class, 'filtragem'])->name('site.filtro');
 
-    Route::get('home/filtro-disciplina', [\App\Http\Controllers\HomeController::class, 'loadDisc'])->name('load.disc');
-    Route::get('home/filtro-curso', [\App\Http\Controllers\HomeController::class, 'loadCurso'])->name('load.curso');
+    Route::get('/home/filtro-disciplina', [\App\Http\Controllers\HomeController::class, 'loadDisc'])->name('load.disc');
+    Route::get('/home/filtro-curso', [\App\Http\Controllers\HomeController::class, 'loadCurso'])->name('load.curso');
     Route::post('/import', [App\Http\Controllers\HomeController::class, 'import'])->name('dados.import');
     
 });
-Route::redirect('/', '/relatorio/home');
+// Route::redirect('/', '/relatorio/home');
+Route::fallback(function(){
+    echo 'Rota acessada inexistente. <a href="'.route('site.index').'">clique aqui</a>
+    para ir para a rota inicial';
+});
 
 
 

@@ -171,87 +171,125 @@
 
     <script>
         $(document).ready(function() {
-
-            $("#n1").on('change', function(){
+        //     $("#media1").on('change', function(){
+        //         if (this.checked){  
+        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
+        //                 $(this).removeAttr('disabled');
+        //             });
+        //             $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5")
+        //                 .each(function() {
+        //                     $(this).css({
+        //                         "color": "",
+        //                         "background-color": ""
+        //                     });
+        //                 });
+        //         }else{
+        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
+        //                 $(this).attr("disabled", "disabled");
+        //                 $(this).prop("checked", false);
+        //             });
+        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf, #labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5")
+        //                 .each(function() {
+        //                     $(this).css({
+        //                         "color": "white",
+        //                         "background-color": "grey"
+        //                     });
+        //                 });
+        //         }
+        //     });
+            $("#n1").on('change', function() {
                 if (this.checked) {
-                    $("#ad1").css("color","yellow");
-                $("#ad1").attr("disabled", "disabled");
-                $("#ap1").attr("disabled", "disabled");
-                $("#ad2").attr("disabled", "disabled");
-                $("#ap2").attr("disabled", "disabled");
-                $("#ap3").attr("disabled", "disabled");
-                $("#ad1").prop("checked", false);
-                $("#ap1").prop("checked", false);
-                $("#ad2").prop("checked", false);
-                $("#ap2").prop("checked", false);
-                $("#ap3").prop("checked", false);
-                $("#ad1").css("color","yellow");
-                
 
-                } else{
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n2, #mf").each(function() {
+                        $(this).attr("disabled", "disabled");
+                        $(this).prop("checked", false);
+                    });
 
-                $("#ad1").removeAttr('disabled');
-                $("#ap1").removeAttr('disabled');
-                $("#ad2").removeAttr('disabled');
-                $("#ap2").removeAttr('disabled');
-                $("#ap3").removeAttr('disabled');
-                
 
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln2, #labelmf")
+                        .each(function() {
+                            $(this).css({
+                                "color": "white",
+                                "background-color": "grey"
+                            });
+                        });
+
+
+                } else {
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n2, #mf").each(function() {
+                        $(this).removeAttr('disabled');
+
+                    });
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln2, #labelmf")
+                        .each(function() {
+                            $(this).css({
+                                "color": "",
+                                "background-color": ""
+                            });
+                        });
                 }
             });
 
-            $("#n2").on('change', function(){
+            $("#n2").on('change', function() {
                 if (this.checked) {
+
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #mf").each(function() {
+                        $(this).attr("disabled", "disabled");
+                        $(this).prop("checked", false);
+                    });
+
+
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labelmf")
+                        .each(function() {
+                            $(this).css({
+                                "color": "white",
+                                "background-color": "grey"
+                            });
+                        });
+
+
+                } else {
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #mf").each(function() {
+                        $(this).removeAttr('disabled');
+
+                    });
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labelmf")
+                        .each(function() {
+                            $(this).css({
+                                "color": "",
+                                "background-color": ""
+                            });
+                        });
+                }
+            });
+            $("#mf").on('change', function() {
+                if (this.checked) {
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2").each(function() {
+                        $(this).attr("disabled", "disabled");
+                        $(this).prop("checked", false);
+                    });
                     
-                $("#ad1").attr("disabled", "disabled");
-                $("#ap1").attr("disabled", "disabled");
-                $("#ad2").attr("disabled", "disabled");
-                $("#ap2").attr("disabled", "disabled");
-                $("#ap3").attr("disabled", "disabled");
-                $("#ad1").prop("checked", false);
-                $("#ap1").prop("checked", false);
-                $("#ad2").prop("checked", false);
-                $("#ap2").prop("checked", false);
-                $("#ap3").prop("checked", false);
-                
-                } else{
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labeln2")
+                        .each(function() {
+                            $(this).css({
+                                "color": "white",
+                                "background-color": "grey"
+                            });
+                        });
 
-                $("#ad1").removeAttr('disabled');
-                $("#ap1").removeAttr('disabled');
-                $("#ad2").removeAttr('disabled');
-                $("#ap2").removeAttr('disabled');
-                $("#ap3").removeAttr('disabled');
+                } else {
+                    $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2").each(function() {
+                        $(this).removeAttr('disabled');
+                    });
 
-                }
-            });
-            $("#mf").on('change', function(){
-                if (this.checked) {
-                    
-                $("#ad1").attr("disabled", "disabled");
-                $("#ap1").attr("disabled", "disabled");
-                $("#ad2").attr("disabled", "disabled");
-                $("#ap2").attr("disabled", "disabled");
-                $("#ap3").attr("disabled", "disabled");
-                $("#n1").attr("disabled", "disabled");
-                $("#n2").attr("disabled", "disabled");
-                $("#ad1").prop("checked", false);
-                $("#ap1").prop("checked", false);
-                $("#ad2").prop("checked", false);
-                $("#ap2").prop("checked", false);
-                $("#ap3").prop("checked", false);
-                $("#n1").prop("checked", false);
-                $("#n2").prop("checked", false);
-                
 
-                } else{
-
-                $("#ad1").removeAttr('disabled');
-                $("#ap1").removeAttr('disabled');
-                $("#ad2").removeAttr('disabled');
-                $("#ap2").removeAttr('disabled');
-                $("#ap3").removeAttr('disabled');
-                $("#n1").removeAttr('disabled');
-                $("#n2").removeAttr('disabled');
+                    $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labeln2")
+                        .each(function() {
+                            $(this).css({
+                                "color": "",
+                                "background-color": ""
+                            });
+                        });
 
                 }
             });
@@ -259,29 +297,29 @@
 
 
 
-            $("#select_curso").change(function(){
+            $("#select_curso").change(function() {
                 const url = $('#selectForm').attr("data-disc-url");
                 selectCurso = $(this).val();
                 $.ajax({
-                    url : url,
+                    url: url,
                     data: {
                         'select_curso': selectCurso,
                     },
-                    success: function(data){
+                    success: function(data) {
                         $('#select_disc').html(data);
                     }
                 });
 
             });
-            $("#select_disc").change(function(){
+            $("#select_disc").change(function() {
                 const url = $('#selectForm').attr("data-curso-url");
                 selectDisc = $(this).val();
                 $.ajax({
-                    url : url,
+                    url: url,
                     data: {
                         'select_disc': selectDisc,
                     },
-                    success: function(data){
+                    success: function(data) {
                         $('#select_curso').html(data);
                     }
                 });
@@ -594,7 +632,7 @@
             });
         });
     </script>
-    
+
 
     @yield('conteudo')
 

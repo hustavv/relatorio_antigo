@@ -135,6 +135,7 @@ nav {
     display: inline-block;
     background-color: rgba(255, 255, 255, .9);
     border: 2px solid rgba(139, 139, 139, .3);
+    
     color: #adadad;
     font-weight: 600;
     border-radius: 25px;

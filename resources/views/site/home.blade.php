@@ -149,11 +149,11 @@
                                     <p class="text-center">Avaliações</p>
                                     <div class="checkbox-box checkbox-box-small" >
                                         <input type="checkbox" name="ad1" value="1" id="ad1" >
-                                        <label for="ad1">
+                                        <label for="ad1" id="labelAvaliacoes1">
                                             AD-1
                                         </label>
                                         <input type="checkbox" name="ap1" value="1" id="ap1">
-                                        <label for="ap1">
+                                        <label for="ap1" id="labelAvaliacoes2">
                                             AP-1
                                         </label>
                                     </div>
@@ -162,11 +162,11 @@
                                     </div> --}}
                                     <div class="checkbox-box checkbox-box-small">
                                         <input type="checkbox" name="ad2" value="1" id="ad2">
-                                        <label for="ad2">
+                                        <label for="ad2" id="labelAvaliacoes3">
                                             AD-2
                                         </label>
                                         <input type="checkbox" name="ap2" value="1" id="ap2">
-                                        <label for="ap2">
+                                        <label for="ap2" id="labelAvaliacoes4">
                                             AP-2
                                         </label>
                                     </div>
@@ -177,7 +177,7 @@
 
                                     <div class="checkbox-box checkbox-box-small">
                                         <input type="checkbox" name="ap3" value="1" id="ap3">
-                                        <label for="ap3">
+                                        <label for="ap3" id="labelAvaliacoes5">
                                             AP-3
                                         </label>
                                     </div>
@@ -187,19 +187,19 @@
                                     <p class="text-center">Médias</p>
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n1" value="1" id="n1">
-                                        <label for="n1">
+                                        <label for="n1" id="labeln1">
                                             Nota 1
                                         </label>
                                     </div>
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n2" value="1" id="n2">
-                                        <label for="n2">
+                                        <label for="n2" id="labeln2">
                                             Nota 2
                                         </label>
                                     </div>
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="mf" value="1" id="mf">
-                                        <label for="mf">
+                                        <label for="mf" id="labelmf">
                                             Média Final
                                         </label>
                                     </div>
