@@ -17,7 +17,7 @@ class AuthMd
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+       
         session_start();
 
         if(isset($_SESSION['cpf']) && $_SESSION['cpf'] != ''){

@@ -57,7 +57,10 @@ class HomeController extends Controller
         return view('site.home', ['titulo' => 'Home (teste)'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos'));
     }
     public function import(Request $request)
-    {
+    {   
+        $request->validate(['file'=>'required|mimes:csv']);
+
+        
         Excel::import(new DadosImport, $request->file);
         return redirect()->route('site.index');
     }
@@ -141,6 +144,9 @@ class HomeController extends Controller
             if ($request->n2) {
                 $query->whereRaw('(ad2*0.2)+(ap2*0.8) >= 5');
             }
+            if ($request->mf){
+                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 >= 5');
+            }
             if (empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) && 
             empty($request->n1) && empty($request->n2) && empty($request->mf)) {
                 $query->where(function ($query) {
@@ -175,6 +181,9 @@ class HomeController extends Controller
             }
             if ($request->n2) {
                 $query->whereRaw('(ad2*0.2)+(ap2*0.8) < 5');
+            }
+            if ($request->mf){
+                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 < 5');
             }
             if (empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) && 
             empty($request->n1) && empty($request->n2) && empty($request->mf)) {
@@ -211,6 +220,9 @@ class HomeController extends Controller
             }
             if ($request->n2) {
                 $query->whereRaw('(ad2*0.2)+(ap2*0.8) = 0');
+            }
+            if ($request->mf){
+                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 = 0');
             }
             if (empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) && 
             empty($request->n1) && empty($request->n2) && empty($request->mf)) {

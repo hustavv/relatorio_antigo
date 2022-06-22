@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="background">
+<body class="background" @error('file') onLoad="javascript:funcao1()" @enderror>
 
     <!--SVG DO SIDE BAR-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -151,52 +151,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
 
-    {{-- FIM --}}
-    {{-- <script>
-        $(document).ready(function() {
-    $('.datatables').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );
-    </script> --}}
+    <script>
+        function funcao1() {
+            alert("Formato de arquivo não suportado, por favor selecione uma arquivo com extensão .csv!");
 
+        }
+    </script>
 
     <script>
         $(document).ready(function() {
-        //     $("#media1").on('change', function(){
-        //         if (this.checked){  
-        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
-        //                 $(this).removeAttr('disabled');
-        //             });
-        //             $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5")
-        //                 .each(function() {
-        //                     $(this).css({
-        //                         "color": "",
-        //                         "background-color": ""
-        //                     });
-        //                 });
-        //         }else{
-        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
-        //                 $(this).attr("disabled", "disabled");
-        //                 $(this).prop("checked", false);
-        //             });
-        //             $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf, #labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5")
-        //                 .each(function() {
-        //                     $(this).css({
-        //                         "color": "white",
-        //                         "background-color": "grey"
-        //                     });
-        //                 });
-        //         }
-        //     });
+
             $("#n1").on('change', function() {
                 if (this.checked) {
 
@@ -268,7 +233,7 @@
                         $(this).attr("disabled", "disabled");
                         $(this).prop("checked", false);
                     });
-                    
+
                     $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labeln2")
                         .each(function() {
                             $(this).css({

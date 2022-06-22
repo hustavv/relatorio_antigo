@@ -52,22 +52,22 @@ Route::get('relatorio/{cpf}', function (string $cpf) {
             // echo "teste1";
            
         } else {
-            // return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+            return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
             // dd($_SESSION);
-            echo "teste2";
+            // echo "teste2";
             
         }
     } else {
-        // return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
-        echo "teste3";
+        return Redirect::away('https://cesad.ufs.br/ORBI/acesso');
+        // echo "teste3";
     }
     // dd($cpf);
     // return redirect()->route('site.index');
 })->name('site.auth');
 
 
-Route::middleware('AuthMd')->prefix('/relatorio')->group(function () {
-    Route::get('/relatorio/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('site.index');
+Route::middleware('AuthMd')->prefix('/')->group(function () {
+    Route::get('/home', [\App\Http\Controllers\HomeController::class, 'home'])->name('site.index');
 
     Route::post('/home/filtro', [\App\Http\Controllers\HomeController::class, 'filtragem'])->name('site.filtro');
 

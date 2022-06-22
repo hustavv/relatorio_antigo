@@ -31,8 +31,8 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <a href="sair" style="text-decoration: none;">
                                 <li><button class="dropdown-item" type="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
                                                 d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
                                             <path fill-rule="evenodd"
@@ -58,18 +58,19 @@
         <div class="row">
             <div class="d-flex align-items-start justify-content-between">
 
-                {{-- <div class="col-11  "> --}}
+
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport">Carregar
                     arquivo
                 </button>
+                @error('file')
+                @enderror
 
                 {{-- FIM DO BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
-                {{-- </div> --}}
-                {{-- <div class="col-1"> --}}
+
 
                 {{-- JANELA DE FILTRAGEM --}}
 
@@ -87,7 +88,7 @@
 
                         <li>
                             <div class="row p-2">
-                                
+
                                 <div class="col-md filter-group">
                                     <p class="text-center">Oferta</p>
                                     <select class="form-select" aria-label="Default select example" name="select_curso"
@@ -96,7 +97,7 @@
                                         @foreach ($lista_cursos as $key => $select_curso)
                                             <option value="{{ $select_curso->nome }}">{{ $select_curso->nome }}</option>
                                         @endforeach
-                                       
+
                                     </select>
 
                                     <select class="form-select" aria-label="Default select example" name="select_disc"
@@ -107,7 +108,7 @@
                                                 {{ $select_disc->codigodisciplina }} -
                                                 {{ $select_disc->nome }}</option>
                                         @endforeach
-                                        
+
                                     </select>
 
                                     <select class="form-select" aria-label="Default select example" name="select_polo"
@@ -117,29 +118,32 @@
                                         @foreach ($lista_polos as $key => $select_polo)
                                             <option value="{{ $select_polo->nome }}">{{ $select_polo->nome }}</option>
                                         @endforeach
-                                        
+
                                     </select>
-                                    
+
                                 </div>
-                                
+
                                 <div class="col-md filter-group radio-button-filter">
                                     <p class="text-center">Filtros</p>
                                     <div class="radio-button-box">
-                                        <input class="radio-button-display" type="radio" name="media" value="1" id="media1">
+                                        <input class="radio-button-display" type="radio" name="media" value="1"
+                                            id="media1">
                                         <label class="radio-button-label" for="media1">
                                             Acima da média
                                         </label>
                                     </div>
 
                                     <div class="radio-button-box">
-                                        <input class="radio-button-display" type="radio" name="media" value="2" id="media2">
+                                        <input class="radio-button-display" type="radio" name="media" value="2"
+                                            id="media2" checked>
                                         <label class="radio-button-label" for="media2">
                                             Abaixo da média
                                         </label>
                                     </div>
 
                                     <div class="radio-button-box">
-                                        <input class="radio-button-display" type="radio" name="media" value="3" id="media3">
+                                        <input class="radio-button-display" type="radio" name="media" value="3"
+                                            id="media3">
                                         <label class="radio-button-label" for="media3">
                                             Nota sem aproveitamento
                                         </label>
@@ -147,8 +151,8 @@
                                 </div>
                                 <div class="col-md filter-group checkbox-filter">
                                     <p class="text-center">Avaliações</p>
-                                    <div class="checkbox-box checkbox-box-small" >
-                                        <input type="checkbox" name="ad1" value="1" id="ad1" >
+                                    <div class="checkbox-box checkbox-box-small">
+                                        <input type="checkbox" name="ad1" value="1" id="ad1">
                                         <label for="ad1" id="labelAvaliacoes1">
                                             AD-1
                                         </label>
@@ -200,7 +204,7 @@
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="mf" value="1" id="mf">
                                         <label for="mf" id="labelmf">
-                                            Média Final
+                                            Média
                                         </label>
                                     </div>
                                 </div>
@@ -301,6 +305,7 @@
 
                         <h3 class="modal-title">Carregar arquivo</h3>
                         <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -308,10 +313,12 @@
                             <label for="formFileSm" class="form-label">*Somente arquivo csv</label>
                             <input name="file" class="form-control form-control-sm" id="formFileSm" type="file"
                                 accept=".csv">
+
                         </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Importar</button>
+                        <button type="submit" class="btn btn-success">Importar</button>
                     </div>
                 </form>
             </div>
@@ -355,8 +362,8 @@
                                         </div>
                                         <div class="col-lg">
                                             <h6>Polo: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->polo }}"
-                                                readonly>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->polo }}" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -377,27 +384,37 @@
                                     <div class="row">
                                         <div class="col-sm">
                                             <h6>AD1: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->ad1 }}"
+                                            <input type="text" class="form-control"
+                                                @if ($value->ad1 == "") placeholder="Sem nota"
+                                            @else placeholder={{ $value->ad1 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP1: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->ap1 }}"
+                                            <input type="text" class="form-control"
+                                                @if ($value->ap1 == "") placeholder="Sem nota"
+                                            @else placeholder={{ $value->ap1 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AD2: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->ad2 }}"
+                                            <input type="text" class="form-control"
+                                                @if ($value->ad2 == "") placeholder="Sem nota"
+                                            @else placeholder={{ $value->ad2 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP2: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->ap2 }}"
+                                            <input type="text" class="form-control"
+                                                @if ($value->ap2 == "") placeholder="Sem nota"
+                                            @else placeholder={{ $value->ap2 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP3: </h6>
-                                            <input type="text" class="form-control" placeholder="{{ $value->ap3 }}"
+                                            <input type="text" class="form-control"
+                                                @if ($value->ap3 == "") placeholder="Sem nota"
+                                                @else placeholder={{ $value->ap3 }} @endif
                                                 readonly>
                                         </div>
                                     </div>
@@ -424,6 +441,9 @@
     </script> --}}
 
     <script>
+        // function funcao1() {
+        //     alert("Eu sou um alert!");
+        // },
         $('.dropdown-menu').on("click.bs.dropdown", function(e) {
             e.stopPropagation();
         });
