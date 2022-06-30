@@ -21,12 +21,13 @@ class HomeController extends Controller
 }
     public function home()
     {
-        
+        $lista_semestres = DB::table('semestre')->select('idsemestre','ano','semestre')->orderBy('idsemestre','desc')->get();
+
         $lista_polos = DB::table('polo')->select('nome')->orderBy('nome')->get();
 
         $data_atual = date('Y-m-d');
 
-        $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome')
+        $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome', 'curso.codigo_curso_sigaa')
             ->join(
                 'ofertacurso',
                 'curso.idcurso',
@@ -54,11 +55,11 @@ class HomeController extends Controller
             ->get();
 
         $data = [];
-        return view('site.home', ['titulo' => 'Home (teste)'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos'));
+        return view('site.home', ['titulo' => 'Home (teste)'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_semestres'));
     }
     public function import(Request $request)
     {   
-        $request->validate(['file'=>'required|mimes:csv']);
+        $request->validate(['file'=>'required|mimes:csv,txt']);
 
         
         Excel::import(new DadosImport, $request->file);
@@ -70,11 +71,12 @@ class HomeController extends Controller
     {
         $data = [];
         $lista_polos = DB::table('polo')->select('nome')->orderBy('nome')->get();
+        $lista_semestres = DB::table('semestre')->select('idsemestre','ano','semestre')->orderBy('idsemestre','desc')->get();
 
         $data_atual = date('Y-m-d');
 
 
-        $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome')
+        $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome','curso.codigo_curso_sigaa')
             ->join(
                 'ofertacurso',
                 'curso.idcurso',
@@ -105,10 +107,13 @@ class HomeController extends Controller
             ->where('semestre.fim','>=', $data_atual)->orderBy('disciplina.nome')
             ->get();
 
-        $query = Dados::query();
-
         
-
+        $query = Dados::query();
+               
+                
+        if ($request->select_semestre_request) {
+            $query->where('idsemestre', $request->select_semestre_request);
+        }
         if ($request->select_curso) {
             $query->where('codigo_curso', $request->select_curso);
         }
@@ -249,7 +254,7 @@ class HomeController extends Controller
         // print_r($teste);
        
 
-        return view('site.home', ['titulo' => 'Home (teste)'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos'));
+        return view('site.home', ['titulo' => 'Home (teste)'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos','lista_semestres'));
     }
 
     public function loadDisc(Request $request){
@@ -274,7 +279,7 @@ class HomeController extends Controller
             'curso.idcurso',
             '=',
             'ofertacurso.idcurso'
-        )->where('curso.nome', $select_curso)
+        )->where('curso.codigo_curso_sigaa', $select_curso)
         ->join('semestre', 'ofertacurso.idsemestre', '=', 'semestre.idsemestre')
             ->where('semestre.inicio', '<=', $data_atual)
             ->where('semestre.fim','>=', $data_atual)
@@ -313,7 +318,7 @@ class HomeController extends Controller
        
 
         if (!empty($select_disc)) {
-            $lista_cursos = DB::table('curso')->select('curso.idcurso','curso.nome')
+            $lista_cursos = DB::table('curso')->select('curso.idcurso','curso.nome','curso.codigo_curso_sigaa')
             ->join(
                 'ofertacurso',
                 'curso.idcurso',
@@ -329,7 +334,7 @@ class HomeController extends Controller
                 'disciplinacurso.iddisciplina',
                 '=',
                 'disciplina.iddisciplina'
-            )->where('disciplina.nome', $select_disc) 
+            )->where('disciplina.codigodisciplina', $select_disc) 
             ->join('semestre', 'ofertacurso.idsemestre', '=', 'semestre.idsemestre')
             ->where('semestre.inicio', '<=', $data_atual)
             ->where('semestre.fim','>=', $data_atual)

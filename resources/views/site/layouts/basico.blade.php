@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="background" @error('file') onLoad="javascript:funcao1()" @enderror>
+<body class="background" @error('file') onload="funcao1()" @enderror>
 
     <!--SVG DO SIDE BAR-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -154,13 +154,34 @@
 
     <script>
         function funcao1() {
-            alert("Formato de arquivo não suportado, por favor selecione uma arquivo com extensão .csv!");
+            alert(
+                "Formato de arquivo ou disposição dos dados não suportado(as), por favor selecione uma arquivo com extensão .csv com os campos corretamente preenchidos!");
 
         }
     </script>
 
     <script>
         $(document).ready(function() {
+            $("#limpar").click(function() {
+                $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
+                    $(this).removeAttr('disabled');
+                    $(this).prop("checked", false);
+
+                });
+                $("#labelAvaliacoes1, #labelAvaliacoes2, #labelAvaliacoes3, #labelAvaliacoes4, #labelAvaliacoes5, #labeln1, #labeln2, #labelmf")
+                    .each(function() {
+                        $(this).css({
+                            "color": "",
+                            "background-color": ""
+                        });
+                    });
+                // $("#select_curso, #select_disc, #select_polo").each(function() {
+                //     $(this).val("").change();
+                // };)
+                $("#select_curso").val("").change();
+                $("#select_disc").val("").change();
+                $("#select_polo").val("").change();
+            });
 
             $("#n1").on('change', function() {
                 if (this.checked) {
@@ -288,6 +309,16 @@
                         $('#select_curso').html(data);
                     }
                 });
+
+            });
+            $("#select_semestre").change(function() {
+                if ($(this).children('option:first-child').is(':selected')){
+                    $("#carregar").prop("disabled",false);
+                }else{
+                    $("#carregar").prop("disabled",true);
+                }
+                valor = $(this).val();
+                $("#select_semestre_request").val(valor);
 
             });
 

@@ -62,11 +62,27 @@
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport">Carregar
+                {{-- SELECT DE SEMESTRE --}}
+
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
+                    id="carregar">Carregar
                     arquivo
                 </button>
-                @error('file')
-                @enderror
+                <div class="col-1 align-self-end">
+
+                    <select class="form-select form-select-sm" aria-label="Default select example" id="select_semestre"
+                        name="select_semestre">
+
+                        @foreach ($lista_semestres as $key => $select_semestre)
+                            <option value="{{ $select_semestre->idsemestre }}">{{ $select_semestre->ano }}-
+                                {{ $select_semestre->semestre }}</option>
+                        @endforeach
+
+                    </select>
+
+                </div>
+
+                {{-- FIM DO SELECT DE SEMESTRE --}}
 
                 {{-- FIM DO BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
@@ -86,6 +102,18 @@
                         data-curso-url="{{ route('load.curso') }}">
                         @csrf
 
+                        {{-- SELECT ESCONDIDO PARA PASSAR O REQUEST --}}
+                        <select hidden class="form-select form-select-sm" aria-label="Default select example"
+                            id="select_semestre_request" name="select_semestre_request">
+
+                            @foreach ($lista_semestres as $key => $select_semestre)
+                                <option value="{{ $select_semestre->idsemestre }}">{{ $select_semestre->ano }}-
+                                    {{ $select_semestre->semestre }}</option>
+                            @endforeach
+
+                        </select>
+                        {{-- FIM DO SELECT ESCONDIDO PARA PASSAR O REQUEST --}}
+
                         <li>
                             <div class="row p-2">
 
@@ -94,8 +122,11 @@
                                     <select class="form-select" aria-label="Default select example" name="select_curso"
                                         id="select_curso">
                                         <option value="" selected>Selecione o Curso</option>
+
                                         @foreach ($lista_cursos as $key => $select_curso)
-                                            <option value="{{ $select_curso->nome }}">{{ $select_curso->nome }}</option>
+                                            <option value="{{ $select_curso->codigo_curso_sigaa }}">
+                                                {{ $select_curso->codigo_curso_sigaa }} - {{ $select_curso->nome }}
+                                            </option>
                                         @endforeach
 
                                     </select>
@@ -104,7 +135,7 @@
                                         id="select_disc">
                                         <option value="" selected>Selecione a Disciplina</option>
                                         @foreach ($lista_disc as $key => $select_disc)
-                                            <option value="{{ $select_disc->nome }}">
+                                            <option value="{{ $select_disc->codigodisciplina }}">
                                                 {{ $select_disc->codigodisciplina }} -
                                                 {{ $select_disc->nome }}</option>
                                         @endforeach
@@ -213,11 +244,12 @@
                         <li>
                             <hr>
                             <div class="row p-2 ">
-                                <div class="col-11">
-
+                                <div class="col-lg d-flex">
+                                    <button type="button" class="btn btn-secondary p-2" id="limpar">Limpar
+                                        campos</button>
                                 </div>
                                 <div class="col-lg d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success p-2 ">Filtrar</button>
+                                    <button type="submit" class="btn btn-success p-2">Filtrar</button>
                                 </div>
                             </div>
                         </li>
@@ -260,8 +292,8 @@
                                 <td>{{ $value->nome_aluno }}</td>
                                 <td>{{ $value->cpf_aluno }}</td>
                                 <td>{{ $value->matricula_aluno }}</td>
-                                <td>{{ $value->codigo_curso }}</td>
-                                <td>{{ $value->codigo_disciplina }}</td>
+                                <td>{{ $value->nome_curso }}</td>
+                                <td>{{ $value->nome_disciplina }}</td>
                                 <td>{{ $value->polo }}</td>
                                 <td>
 
@@ -385,35 +417,35 @@
                                         <div class="col-sm">
                                             <h6>AD1: </h6>
                                             <input type="text" class="form-control"
-                                                @if ($value->ad1 == "") placeholder="Sem nota"
+                                                @if ($value->ad1 == '') placeholder="Sem nota"
                                             @else placeholder={{ $value->ad1 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP1: </h6>
                                             <input type="text" class="form-control"
-                                                @if ($value->ap1 == "") placeholder="Sem nota"
+                                                @if ($value->ap1 == '') placeholder="Sem nota"
                                             @else placeholder={{ $value->ap1 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AD2: </h6>
                                             <input type="text" class="form-control"
-                                                @if ($value->ad2 == "") placeholder="Sem nota"
+                                                @if ($value->ad2 == '') placeholder="Sem nota"
                                             @else placeholder={{ $value->ad2 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP2: </h6>
                                             <input type="text" class="form-control"
-                                                @if ($value->ap2 == "") placeholder="Sem nota"
+                                                @if ($value->ap2 == '') placeholder="Sem nota"
                                             @else placeholder={{ $value->ap2 }} @endif
                                                 readonly>
                                         </div>
                                         <div class="col-sm">
                                             <h6>AP3: </h6>
                                             <input type="text" class="form-control"
-                                                @if ($value->ap3 == "") placeholder="Sem nota"
+                                                @if ($value->ap3 == '') placeholder="Sem nota"
                                                 @else placeholder={{ $value->ap3 }} @endif
                                                 readonly>
                                         </div>
@@ -433,28 +465,15 @@
     @endforeach
 
     {{-- FIM DO MODAL DE DETALHES --}}
-    {{-- <script>
-        $('.dropdown-menu').on("click.bs.dropdown", function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-        });
-    </script> --}}
+
 
     <script>
-        // function funcao1() {
-        //     alert("Eu sou um alert!");
-        // },
         $('.dropdown-menu').on("click.bs.dropdown", function(e) {
             e.stopPropagation();
         });
     </script>
 
-    {{-- <script type="text/javascript">
-    $(document).ready(function(){
-       
-    });
-        
-    </script> --}}
+
 
 
 @endsection
