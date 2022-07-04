@@ -314,8 +314,10 @@
             $("#select_semestre").change(function() {
                 if ($(this).children('option:first-child').is(':selected')){
                     $("#carregar").prop("disabled",false);
+                    $("#carregar").css({"background-color":""});
                 }else{
                     $("#carregar").prop("disabled",true);
+                    $("#carregar").css({"background-color":"grey"});
                 }
                 valor = $(this).val();
                 $("#select_semestre_request").val(valor);

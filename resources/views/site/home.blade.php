@@ -56,19 +56,20 @@
     <div class="mt-4 container">
         <legend class="fs-1 fw-semibold">Relatório de acompanhamento de notas</legend>
         <div class="row">
-            <div class="d-flex align-items-start justify-content-between">
+            <div class="d-flex justify-content-between">
 
 
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
                 {{-- SELECT DE SEMESTRE --}}
-
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
-                    id="carregar">Carregar
-                    arquivo
-                </button>
-                <div class="col-1 align-self-end">
+                <div class="">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
+                        id="carregar">Carregar
+                        arquivo
+                    </button>
+                </div>
+                {{-- <div class="col-1 align-self-end">
 
                     <select class="form-select form-select-sm" aria-label="Default select example" id="select_semestre"
                         name="select_semestre">
@@ -80,7 +81,7 @@
 
                     </select>
 
-                </div>
+                </div> --}}
 
                 {{-- FIM DO SELECT DE SEMESTRE --}}
 
@@ -90,7 +91,7 @@
 
                 {{-- JANELA DE FILTRAGEM --}}
 
-                <div class="btn-group">
+                <div class="btn-group ms-auto">
                     <button type="button" class="btn btn-primary dropdown-toggle mb-3" data-bs-toggle="dropdown"
                         aria-expanded="false" style="" data-bs-display="static">
                         Filtros
@@ -255,6 +256,19 @@
                         </li>
                     </form>
                     {{-- </ul> --}}
+                </div>
+                <div class="" style="margin-left: 1%">
+
+                    <select class="form-select" aria-label="Default select example" id="select_semestre"
+                        name="select_semestre">
+
+                        @foreach ($lista_semestres as $key => $select_semestre)
+                            <option value="{{ $select_semestre->idsemestre }}">{{ $select_semestre->ano }}-
+                                {{ $select_semestre->semestre }}</option>
+                        @endforeach
+
+                    </select>
+
                 </div>
 
                 {{-- </div> --}}

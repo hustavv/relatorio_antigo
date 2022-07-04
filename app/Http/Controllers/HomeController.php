@@ -342,7 +342,7 @@ class HomeController extends Controller
             ->get();
 
         } else {
-            $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome')
+            $lista_cursos = DB::table('curso')->select('curso.idcurso', 'curso.nome','curso.codigo_curso_sigaa')
             ->join(
                 'ofertacurso',
                 'curso.idcurso',
