@@ -47,7 +47,7 @@ Route::get('relatorio/{cpf}', function (string $cpf) {
 
         // dd($_SESSION);
 
-        if ($_SESSION['idusuariotipo'] == 4) {
+        if ($_SESSION['idusuariotipo']) {
             return redirect()->route('site.index');
             // echo "teste1";
            
@@ -74,6 +74,8 @@ Route::middleware('AuthMd')->prefix('/')->group(function () {
     Route::get('/home/filtro-disciplina', [\App\Http\Controllers\HomeController::class, 'loadDisc'])->name('load.disc');
     Route::get('/home/filtro-curso', [\App\Http\Controllers\HomeController::class, 'loadCurso'])->name('load.curso');
     Route::post('/import', [App\Http\Controllers\HomeController::class, 'import'])->name('dados.import');
+    Route::post('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+    
     
 });
 // Route::redirect('/', '/relatorio/home');

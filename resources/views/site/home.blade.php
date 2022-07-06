@@ -4,6 +4,13 @@
 
 @section('conteudo')
 
+    <?php
+    $nome = $_SESSION['nome'];
+    $letra = explode(' ', $nome);
+    
+    $letra[0][0];
+    
+    ?>
 
 
     <!--INICIO NAVBAR-->
@@ -25,12 +32,13 @@
                     <div class="dropdown dropstart">
                         <a href="#" class="" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{ asset('images/icons_perfil/A.png') }}" class="btn-nav btn-perfil" href="#"
-                                title="Perfil" role="button" id="dropdown" aria-expanded="false">
+                            <img src="/relatorio/images/icons_perfil/<?php echo $letra[0][0]; ?>.png" class="btn-nav btn-perfil"
+                                href="#" title="Perfil" role="button" id="dropdown" aria-expanded="false">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <a href="sair" style="text-decoration: none;">
-                                <li><button class="dropdown-item" type="button">
+                                <li><button class="dropdown-item" type="button" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd"
@@ -39,7 +47,12 @@
                                                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                                         </svg>
                                         Sair
-                                    </button></li>
+                                    </button>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
                             </a>
                         </ul>
                     </div>
@@ -55,6 +68,31 @@
 
     <div class="mt-4 container">
         <legend class="fs-1 fw-semibold">Relatório de acompanhamento de notas</legend>
+
+        {{-- VALIDACOES --}}
+
+        @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible" id="alertaSucesso" role="alert">
+                {{ session()->get('message') }}
+                <span id="spanSucesso" type="button" class="btn-close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">
+                    </span>
+                </span>
+            </div>
+        @endif
+
+        @error('file')
+            <div class="alert alert-danger alert-dismissible" id="alertaErro" role="alert">
+                Formato de arquivo inválido
+                <span id="spanErro" type="button" class="btn-close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">/
+                    </span>
+                </span>
+            </div>
+        @enderror
+
+        {{-- FIM VALIDACOES --}}
+
         <div class="row">
             <div class="d-flex justify-content-between">
 
@@ -62,28 +100,15 @@
 
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
-                {{-- SELECT DE SEMESTRE --}}
-                <div class="">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
-                        id="carregar">Carregar
-                        arquivo
-                    </button>
-                </div>
-                {{-- <div class="col-1 align-self-end">
 
-                    <select class="form-select form-select-sm" aria-label="Default select example" id="select_semestre"
-                        name="select_semestre">
-
-                        @foreach ($lista_semestres as $key => $select_semestre)
-                            <option value="{{ $select_semestre->idsemestre }}">{{ $select_semestre->ano }}-
-                                {{ $select_semestre->semestre }}</option>
-                        @endforeach
-
-                    </select>
-
-                </div> --}}
-
-                {{-- FIM DO SELECT DE SEMESTRE --}}
+                @if ($_SESSION['cpf'] == '55760139568')
+                    <div class="">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
+                            id="carregar">Carregar
+                            arquivo
+                        </button>
+                    </div>
+                @endif
 
                 {{-- FIM DO BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
@@ -148,7 +173,8 @@
 
                                         <option value="" selected>Selecione o Polo</option>
                                         @foreach ($lista_polos as $key => $select_polo)
-                                            <option value="{{ $select_polo->nome }}">{{ $select_polo->nome }}</option>
+                                            <option value="{{ $select_polo->nome }}">{{ $select_polo->nome }}
+                                            </option>
                                         @endforeach
 
                                     </select>
@@ -160,7 +186,8 @@
                                     <div class="radio-button-box">
                                         <input class="radio-button-display" type="radio" name="media" value="1"
                                             id="media1">
-                                        <label class="radio-button-label" for="media1">
+                                        <label class="radio-button-label" title="Notas maiores ou iguais a 5"
+                                            for="media1">
                                             Acima da média
                                         </label>
                                     </div>
@@ -168,7 +195,7 @@
                                     <div class="radio-button-box">
                                         <input class="radio-button-display" type="radio" name="media" value="2"
                                             id="media2" checked>
-                                        <label class="radio-button-label" for="media2">
+                                        <label class="radio-button-label" title="Notas abaixo de 5" for="media2">
                                             Abaixo da média
                                         </label>
                                     </div>
@@ -176,7 +203,7 @@
                                     <div class="radio-button-box">
                                         <input class="radio-button-display" type="radio" name="media" value="3"
                                             id="media3">
-                                        <label class="radio-button-label" for="media3">
+                                        <label class="radio-button-label" title="Notas iguais a 0" for="media3">
                                             Nota sem aproveitamento
                                         </label>
                                     </div>
@@ -223,13 +250,13 @@
                                     <p class="text-center">Médias</p>
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n1" value="1" id="n1">
-                                        <label for="n1" id="labeln1">
+                                        <label for="n1" title="AP1 + AD1" id="labeln1">
                                             Nota 1
                                         </label>
                                     </div>
                                     <div class="checkbox-box checkbox-box-large" id="checkbox-box-media">
                                         <input type="checkbox" name="n2" value="1" id="n2">
-                                        <label for="n2" id="labeln2">
+                                        <label for="n2" title="AD2 +AP2" id="labeln2">
                                             Nota 2
                                         </label>
                                     </div>

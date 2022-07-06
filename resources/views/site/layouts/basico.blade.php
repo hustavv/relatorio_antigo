@@ -47,7 +47,7 @@
 
 </head>
 
-<body class="background" @error('file') onload="funcao1()" @enderror>
+<body class="background">
 
     <!--SVG DO SIDE BAR-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -150,18 +150,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 
 
     <script>
         function funcao1() {
             alert(
-                "Formato de arquivo ou disposição dos dados não suportado(as), por favor selecione uma arquivo com extensão .csv com os campos corretamente preenchidos!");
+                "Formato de arquivo ou disposição dos dados não suportado(as), por favor selecione uma arquivo com extensão .csv com os campos corretamente preenchidos!"
+                );
 
         }
     </script>
 
     <script>
         $(document).ready(function() {
+            $("#spanSucesso").click(function(){
+                $("#alertaSucesso").hide();
+            });
+            $("#spanErro").click(function(){
+                $("#alertaErro").hide();
+            });
             $("#limpar").click(function() {
                 $("#ad1, #ap1, #ad2, #ap2, #ap3, #n1, #n2, #mf").each(function() {
                     $(this).removeAttr('disabled');
@@ -312,12 +322,16 @@
 
             });
             $("#select_semestre").change(function() {
-                if ($(this).children('option:first-child').is(':selected')){
-                    $("#carregar").prop("disabled",false);
-                    $("#carregar").css({"background-color":""});
-                }else{
-                    $("#carregar").prop("disabled",true);
-                    $("#carregar").css({"background-color":"grey"});
+                if ($(this).children('option:first-child').is(':selected')) {
+                    $("#carregar").prop("disabled", false);
+                    $("#carregar").css({
+                        "background-color": ""
+                    });
+                } else {
+                    $("#carregar").prop("disabled", true);
+                    $("#carregar").css({
+                        "background-color": "grey"
+                    });
                 }
                 valor = $(this).val();
                 $("#select_semestre_request").val(valor);
@@ -631,7 +645,7 @@
         });
     </script>
 
-
+    {{-- @include('site.layouts._partials.flash-message') --}}
     @yield('conteudo')
 
 </body>
