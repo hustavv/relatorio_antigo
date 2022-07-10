@@ -50,6 +50,7 @@ class DadosImport implements ToCollection, WithHeadingRow
         $idsemestre = DB::table('semestre')->select('idsemestre')->where('inicio', '<=', date('Y-m-d'))
         ->where('fim', '>=', date('Y-m-d'))->get()->first();
         // dd($teste);
+        // dd($rows->toArray());
 
 
         foreach ($rows as $row) {

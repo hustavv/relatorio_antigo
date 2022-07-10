@@ -101,7 +101,7 @@
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
 
-                @if ($_SESSION['cpf'] == '55760139568')
+                @if ($_SESSION['idusuariotipo'] == 4)
                     <div class="">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
                             id="carregar">Carregar
@@ -450,6 +450,7 @@
                                             <input type="text" class="form-control"
                                                 placeholder="{{ $value->codigo_disciplina }}" readonly>
                                         </div>
+                                        {{-- @include('site.layouts._partials.detalhes') --}}
                                     </div>
                                 </div>
 

@@ -47,7 +47,7 @@ Route::get('relatorio/{cpf}', function (string $cpf) {
 
         // dd($_SESSION);
 
-        if ($_SESSION['idusuariotipo']) {
+        if ($_SESSION['idusuariotipo'] == 4 && $_SESSION['ativo'] == 1 ) {
             return redirect()->route('site.index');
             // echo "teste1";
            

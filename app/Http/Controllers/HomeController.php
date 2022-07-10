@@ -252,13 +252,18 @@ class HomeController extends Controller
 
         $data = $query->get();
 
+        // $importacaoaluno = DB::table('importacaoaluno')->select('idimportacaoaluno','username','email')->get();
+        // dd($importacaoaluno);
+        
+        // $ivana = $importacaoaluno->where('username', '72313838587')->first();
+        // $aa = $ivana->email;
+        // dd($aa);
+
+        
 
 
 
-
-
-
-        // print_r($teste);
+     
 
 
         return view('site.home', ['titulo' => 'Filtro'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos', 'lista_semestres'));
@@ -372,5 +377,9 @@ class HomeController extends Controller
     public function logout(){
         session_destroy();
         return redirect()->route('site.index');
+    }
+
+    public function detalhes(){
+        
     }
 }

@@ -191,6 +191,8 @@
                 $("#select_curso").val("").change();
                 $("#select_disc").val("").change();
                 $("#select_polo").val("").change();
+                // $("#select_curso").val($("#select_curso option:first").val());
+                
             });
 
             $("#n1").on('change', function() {
