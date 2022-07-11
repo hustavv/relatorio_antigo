@@ -145,13 +145,13 @@ class HomeController extends Controller
                 $query->where('ap3', '>=', 5);
             }
             if ($request->n1) {
-                $query->whereRaw('(ad1*0.2)+(ap1*0.8) >= 5');
+                $query->whereRaw('(ad1*0.3)+(ap1*0.7) >= 5');
             }
             if ($request->n2) {
-                $query->whereRaw('(ad2*0.2)+(ap2*0.8) >= 5');
+                $query->whereRaw('(ad2*0.3)+(ap2*0.7) >= 5');
             }
             if ($request->mf) {
-                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 >= 5');
+                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 >= 5');
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -185,13 +185,13 @@ class HomeController extends Controller
                 $query->where('ap3', '<', 5);
             }
             if ($request->n1) {
-                $query->whereRaw('(ad1*0.2)+(ap1*0.8) < 5');
+                $query->whereRaw('(ad1*0.3)+(ap1*0.7) < 5');
             }
             if ($request->n2) {
-                $query->whereRaw('(ad2*0.2)+(ap2*0.8) < 5');
+                $query->whereRaw('(ad2*0.3)+(ap2*0.7) < 5');
             }
             if ($request->mf) {
-                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 < 5');
+                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 < 5');
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -226,13 +226,17 @@ class HomeController extends Controller
                 $query->where('ap3', 0);
             }
             if ($request->n1) {
-                $query->whereRaw('(ad1*0.2)+(ap1*0.8) = 0');
+                $query->whereRaw('(ad1*0.3)+(ap1*0.7) = 0');
             }
             if ($request->n2) {
-                $query->whereRaw('(ad2*0.2)+(ap2*0.8) = 0');
+                $query->whereRaw('(ad2*0.3)+(ap2*0.7) = 0');
             }
             if ($request->mf) {
-                $query->whereRaw('((ad1*0.2)+(ap1*0.8))+((ad2*0.2)+(ap2*0.8))/2 = 0');
+                
+                
+                if ($query->where('ap3','')) {
+                    $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                }
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
