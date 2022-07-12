@@ -35,7 +35,7 @@
     <meta name="theme-color" content="#7952b3">
 
     <!--favicon Pag-->
-    <link rel="shortcut icon" href="{{ asset('images/chamado.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('images/relatorio.png') }}" type="image/x-icon" />
 
     <!--Data table-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">

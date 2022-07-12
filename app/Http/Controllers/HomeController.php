@@ -233,9 +233,10 @@ class HomeController extends Controller
             }
             if ($request->mf) {
                 
+                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                if ($query->has('ap3')) {
                 
-                if ($query->where('ap3','')) {
-                    $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                    
                 }
             }
             if (
