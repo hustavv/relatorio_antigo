@@ -8,6 +8,7 @@ use App\Models\Dados;
 use Excel;
 use App\Imports\DadosImport;
 use Illuminate\Support\Facades\DB;
+use PhpParser\ErrorHandler\Collecting;
 
 class HomeController extends Controller
 {
@@ -233,11 +234,33 @@ class HomeController extends Controller
             }
             if ($request->mf) {
                 
-                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
-                if ($query->has('ap3')) {
                 
+                // if (!empty($query->where('ap3','<>',''))) {
+                //     $query->where('ap3');
+                //     dd($query->get());
+                // }
+                $teste1 = new Collecting;
+                $teste2 = new Collecting;
+                $teste1 = $query->when(empty($query->ap3), function($query, $teste1){
+                    return  $teste1 = $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                });
+
+                $min = $query->min('ap1','ap2');
+                dd($min);
+                $teste2 = $query->when(!empty($query->ap3), function($query, $teste2){
                     
-                }
+                });
+                $query = $teste1->merge($teste2);
+
+                // $query->when(empty($query->ap3), function($query){
+                //     return $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                // });
+
+                $query->when(!empty($query->ap3), function($query){
+                    // 
+                    return dd($query);
+                });
+                
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
