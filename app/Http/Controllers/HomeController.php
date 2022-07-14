@@ -236,7 +236,7 @@ class HomeController extends Controller
 
 
                 
-                $teste1 = $query;
+                $teste1 = clone $query;
                 // dd($query->get());
                 $teste2 = new Collecting;
 
@@ -247,7 +247,7 @@ class HomeController extends Controller
                 //     return  $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
                 // });
                 
-                dd($query->get());
+                dd($teste1->get());
                 
                 $teste2 = $query->when(!empty($query->ap3), function ($query, $teste2) {
                 });
