@@ -63,8 +63,8 @@ class HomeController extends Controller
 
         Excel::import(new DadosImport, $request->file);
 
-        
-        return redirect()->route('site.index')->with('message','Arquivo carregado com sucesso!');
+
+        return redirect()->route('site.index')->with('message', 'Arquivo carregado com sucesso!');
     }
 
 
@@ -233,34 +233,32 @@ class HomeController extends Controller
                 $query->whereRaw('(ad2*0.3)+(ap2*0.7) = 0');
             }
             if ($request->mf) {
+
+
                 
-                
-                // if (!empty($query->where('ap3','<>',''))) {
-                //     $query->where('ap3');
-                //     dd($query->get());
-                // }
-                $teste1 = new Collecting;
+                $teste1 = $query;
+                // dd($query->get());
                 $teste2 = new Collecting;
-                $teste1 = $query->when(empty($query->ap3), function($query, $teste1){
-                    return  $teste1 = $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
-                });
 
-                $min = $query->min('ap1','ap2');
-                dd($min);
-                $teste2 = $query->when(!empty($query->ap3), function($query, $teste2){
-                    
-                });
-                $query = $teste1->merge($teste2);
-
-                // $query->when(empty($query->ap3), function($query){
-                //     return $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                if (empty($teste1->ap3)) {
+                    $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                }
+                // $teste1->when(empty($teste1->ap3), function ($teste1) {
+                //     return  $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
                 // });
-
-                $query->when(!empty($query->ap3), function($query){
-                    // 
-                    return dd($query);
-                });
                 
+                dd($query->get());
+                
+                $teste2 = $query->when(!empty($query->ap3), function ($query, $teste2) {
+                });
+                // $query = $teste1->merge($teste2);
+
+                
+
+                $query->when(!empty($query->ap3), function ($query) {
+                    // $query->
+                    // return dd($query);
+                });
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -282,16 +280,16 @@ class HomeController extends Controller
 
         // $importacaoaluno = DB::table('importacaoaluno')->select('idimportacaoaluno','username','email')->get();
         // dd($importacaoaluno);
-        
+
         // $ivana = $importacaoaluno->where('username', '72313838587')->first();
         // $aa = $ivana->email;
         // dd($aa);
 
-        
 
 
 
-     
+
+
 
 
         return view('site.home', ['titulo' => 'Filtro'], compact('data', 'lista_cursos', 'lista_polos', 'lista_disc', 'lista_cursos', 'lista_semestres'));
@@ -402,12 +400,13 @@ class HomeController extends Controller
         return view('site.layouts.select_curso_ajax', compact('lista_cursos'));
     }
 
-    public function logout(){
+    public function logout()
+    {
         session_destroy();
         return redirect()->route('site.index');
     }
 
-    public function detalhes(){
-        
+    public function detalhes()
+    {
     }
 }
