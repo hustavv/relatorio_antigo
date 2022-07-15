@@ -237,29 +237,44 @@ class HomeController extends Controller
 
                 
                 $teste1 = clone $query;
-                $teste2 = clone $query;
+                // $teste2 = clone $teste1;
 
-                if (empty($teste1->ap3)) {
-                    $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
-                } else {
-                
+                if (!empty($query->whereNull('ap3'))) {
+                    // $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                    
+                    $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
                 }
+
+                
+                if (!empty($teste1->whereNotNull('ap3'))) {
+                    
+                    $teste1->whereNotNull('ap3')->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                    
+                    $teste1->get();
+                    dd($teste1->get());  
+                    
+                    
+                }
+                
+                
+                // dd($teste1->get());
+                                    
                 // $teste1->when(empty($teste1->ap3), function ($teste1) {
                 //     return  $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
                 // });
+                // $query = clone $teste1;
+                // dd($teste1->get());
+                // dd($teste2->get());
                 
-                dd($teste1->get());
-                
-                $teste2 = $query->when(!empty($query->ap3), function ($query, $teste2) {
-                });
+               
                 // $query = $teste1->merge($teste2);
-
+                
                 
 
-                $query->when(!empty($query->ap3), function ($query) {
-                    // $query->
-                    // return dd($query);
-                });
+                // $query->when(!empty($query->ap3), function ($query) {
+                //     // $query->
+                //     // return dd($query);
+                // });
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
