@@ -152,7 +152,42 @@ class HomeController extends Controller
                 $query->whereRaw('(ad2*0.3)+(ap2*0.7) >= 5');
             }
             if ($request->mf) {
-                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 >= 5');
+                
+                $teste1 = clone $query;
+                $teste2 = clone $teste1;
+                $teste3 = clone $teste2;
+                $teste4 = clone $teste3;
+
+                if ($teste1->whereNull('ap3')) {
+                    
+                    $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 >= 5');
+                    // $teste1->get('ap1')->min();
+
+                }
+                
+
+                if ($teste2->whereNotNull('ap3') && $teste3->whereNotNull('ap3') && $teste4->whereNotNull('ap3')) {
+
+                    if ($teste2->whereRaw('ap1 > ap2')) {
+                        $teste2->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap3*0.7))/2 >= 5');
+                        
+                    }
+                    if ($teste3->whereRaw('ap2 > ap1')){
+                        $teste3->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 >= 5');
+                    }
+                    if ($teste4->whereRaw('ap1 = ap2')) {
+                        $teste4->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 >= 5');
+                        
+                    }
+                    
+                    
+                }
+                // dd($teste2->get());
+
+                // dd($teste1->get());
+                
+                $query = $teste2->union($teste1->union($teste3->union($teste4)));
+                // $query = $teste3;
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -192,7 +227,42 @@ class HomeController extends Controller
                 $query->whereRaw('(ad2*0.3)+(ap2*0.7) < 5');
             }
             if ($request->mf) {
-                $query->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 < 5');
+                
+                $teste1 = clone $query;
+                $teste2 = clone $teste1;
+                $teste3 = clone $teste2;
+                $teste4 = clone $teste3;
+
+                if ($teste1->whereNull('ap3')) {
+                    
+                    $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 < 5');
+                    // $teste1->get('ap1')->min();
+
+                }
+                
+
+                if ($teste2->whereNotNull('ap3') && $teste3->whereNotNull('ap3') && $teste4->whereNotNull('ap3')) {
+
+                    if ($teste2->whereRaw('ap1 > ap2')) {
+                        $teste2->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap3*0.7))/2 < 5');
+                        
+                    }
+                    if ($teste3->whereRaw('ap2 > ap1')){
+                        $teste3->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 <5 ');
+                    }
+                    if ($teste4->whereRaw('ap1 = ap2')) {
+                        $teste4->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 < 5');
+                        
+                    }
+                    
+                    
+                }
+                // dd($teste2->get());
+
+                // dd($teste1->get());
+                
+                $query = $teste2->union($teste1->union($teste3->union($teste4)));
+                // $query = $teste3;
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -238,23 +308,39 @@ class HomeController extends Controller
 
                 $teste1 = clone $query;
                 $teste2 = clone $teste1;
+                $teste3 = clone $teste2;
+                $teste4 = clone $teste3;
 
                 if ($teste1->whereNull('ap3')) {
-
+                    
                     $teste1->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
                     // $teste1->get('ap1')->min();
 
                 }
+                
 
-                if ($teste2->whereNotNull('ap3')) {
+                if ($teste2->whereNotNull('ap3') && $teste3->whereNotNull('ap3') && $teste4->whereNotNull('ap3')) {
 
-                    $teste2->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                    if ($teste2->whereRaw('ap1 > ap2')) {
+                        $teste2->whereRaw('((ad1*0.3)+(ap1*0.7))+((ad2*0.3)+(ap3*0.7))/2 = 0');
+                        
+                    }
+                    if ($teste3->whereRaw('ap2 > ap1')){
+                        $teste3->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                    }
+                    if ($teste4->whereRaw('ap1 = ap2')) {
+                        $teste4->whereRaw('((ad1*0.3)+(ap3*0.7))+((ad2*0.3)+(ap2*0.7))/2 = 0');
+                        
+                    }
+                    
                     
                 }
+                // dd($teste2->get());
 
-                dd($teste1->get());
+                // dd($teste1->get());
                 
-                $query = $teste2->union($teste1);
+                $query = $teste2->union($teste1->union($teste3->union($teste4)));
+                // $query = $teste3;
             }
             if (
                 empty($request->ad1) && empty($request->ap1) && empty($request->ad2) && empty($request->ap2) && empty($request->ap3) &&
@@ -274,12 +360,7 @@ class HomeController extends Controller
 
         $data = $query->get();
 
-        // $importacaoaluno = DB::table('importacaoaluno')->select('idimportacaoaluno','username','email')->get();
-        // dd($importacaoaluno);
-
-        // $ivana = $importacaoaluno->where('username', '72313838587')->first();
-        // $aa = $ivana->email;
-        // dd($aa);
+        
 
 
 

@@ -450,6 +450,17 @@
                                             <input type="text" class="form-control"
                                                 placeholder="{{ $value->codigo_disciplina }}" readonly>
                                         </div>
+                                        <div class="col-md">
+                                            <h6>Nome do Curso: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->nome_curso }}" readonly>
+                                        </div>
+                                        <div class="col-md">
+                                            <h6>Nome da disciplina: </h6>
+                                            <input type="text" class="form-control"
+                                                placeholder="{{ $value->nome_disciplina }}" readonly>
+                                        </div>
+                                        
                                         {{-- @include('site.layouts._partials.detalhes') --}}
                                     </div>
                                 </div>
