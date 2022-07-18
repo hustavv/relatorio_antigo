@@ -101,7 +101,7 @@
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
 
-                @if ($_SESSION['idusuariotipo'] == 4)
+                @if (in_array($_SESSION['idusuario'], [507]))
                     <div class="">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
                             id="carregar">Carregar
