@@ -101,7 +101,7 @@
                 {{-- BOTÃO PARA CHAMAR MODAL DE IMPORT --}}
 
                 {{-- O ID de usuario e usado ao inves do tipo, pois o orbi nao permite ao usuarios terem multiplos tipos de acesso --}}
-                @if (in_array($_SESSION['idusuario'], [507]))
+                @if (in_array($_SESSION['idusuario'], [507, 1047]))
                     <div class="">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalImport"
                             id="carregar">Carregar

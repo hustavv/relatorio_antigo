@@ -54,6 +54,10 @@ class DadosImport implements ToCollection, WithHeadingRow
 
 
         foreach ($rows as $row) {
+
+            try {
+                //code...
+            
             Dados::updateOrCreate(
                 [
                     'nome_aluno' => $row['nome_aluno'],
@@ -79,6 +83,9 @@ class DadosImport implements ToCollection, WithHeadingRow
                     'responsavel_id' =>  $_SESSION['idusuario']
                 ]
             );
+        } catch (\Error $exception) {
+            
+        }
         }
     }
 }

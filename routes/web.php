@@ -80,7 +80,7 @@ Route::middleware('AuthMd')->prefix('/')->group(function () {
 });
 // Route::redirect('/', '/relatorio/home');
 Route::fallback(function(){
-    echo 'Rota acessada inexistente. <a href="'.route('site.index').'">clique aqui</a>
+    echo 'Rota acessada inexistente. <a href="'.route('site.index').'">Clique aqui</a>
     para ir para a rota inicial';
 });
 
