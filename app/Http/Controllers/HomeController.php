@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dados;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\DadosImport;
 use Illuminate\Support\Facades\DB;
 use PhpParser\ErrorHandler\Collecting;
