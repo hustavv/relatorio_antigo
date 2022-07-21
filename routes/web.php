@@ -88,6 +88,6 @@ Route::fallback(function(){
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/import-form', [App\Http\Controllers\DadosController::class, 'importForm']);
+// Route::get('/import-form', [App\Http\Controllers\DadosController::class, 'importForm']);  
 
 // Route::post('/import', [App\Http\Controllers\HomeController::class, 'import'])->name('dados.import');

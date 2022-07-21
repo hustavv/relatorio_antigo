@@ -83,9 +83,9 @@
 
         @error('file')
             <div class="alert alert-danger alert-dismissible" id="alertaErro" role="alert">
-                Formato de arquivo inválido
+                Formato de arquivo inválido!
                 <span id="spanErro" type="button" class="btn-close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">/
+                        aria-hidden="true">
                     </span>
                 </span>
             </div>
@@ -460,7 +460,7 @@
                                             <input type="text" class="form-control"
                                                 placeholder="{{ $value->nome_disciplina }}" readonly>
                                         </div>
-                                        
+
                                         {{-- @include('site.layouts._partials.detalhes') --}}
                                     </div>
                                 </div>
@@ -524,8 +524,14 @@
         $('.dropdown-menu').on("click.bs.dropdown", function(e) {
             e.stopPropagation();
         });
-    </script>
 
+        // $(document).ready(function() {
+
+        // });
+    </script>
+    @include('site.layouts._partials.scripts_funcoes')
+
+    @include('site.layouts._partials.scripts_config')
 
 
 
